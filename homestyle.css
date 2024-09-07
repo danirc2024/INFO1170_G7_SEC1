@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.Header {
+    position: relative;
+    padding: 20px;
+    background: url('Naturaleza_Felix-Mittermeier_Pexels.jpg') center/cover no-repeat;
+    color: white;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.INICSERVUSCONTAC {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.INICSERVUSCONTAC ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.INICSERVUSCONTAC a {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: black;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.INICSERVUSCONTAC a:hover {
+    background-color: #333;
+}
+
+.Header h2 {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px black;
+    margin-bottom: 10px;
+}
+
+.BarraBusqueda {
+    margin-top: 20px;
+}
+
+.BarraBusqueda input {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+
+.puntos {
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.puntos h1 {
+    font-size: 2.5em;
+}
+
+.puntos p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.description {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.description h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.map-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: #ddd;
+}
+
+.voluntariado {
+    padding: 50px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+}
+
+.voluntariado h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.voluntariado p {
+    font-size: 1.2em;
+}
+
+.testimonios {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonios h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.testimonios p {
+    font-size: 1.2em;
+}
+
+footer {
+    padding: 50px;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    position: absolute;
+    width: 100%;
+}
+footer h2 {
+    color: white;
+
+    font-size: 20px;
+}
+
+.icons i {
+    padding: 5px 0px;
+    display: flex;
+    align-items: center;;
+    justify-content: space-around;
+    font-size: 28px;
+}
+
