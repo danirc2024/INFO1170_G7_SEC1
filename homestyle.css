@@ -64,7 +64,39 @@ body {
     outline: none;
 }
 
-/* Sección de puntos de reciclaje */
+.puntos {
+    background-image: url('puntoreciclaje.jpg'), 
+                      url('reciclaje.jpg'), 
+                      url('reciclando.jpg'), 
+                      url('limpiando.jpg'),
+                      url('puntolimpio.jpg'),
+                      url('limpiando.jpg');
+    background-size: 20% 50%, 20% 50%, 20% 50%, 20% 50%, 20% 50%; /* Tamaños ajustados */
+    background-position: top left, top right, bottom left, bottom right, center; /* Posiciones de cada imagen */
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat; /* Evitar repetición de imágenes */
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative; /* Para asegurar que el contenido se ubique correctamente */
+}
+
+.puntos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Capa semitransparente para mejorar legibilidad */
+    z-index: 1;
+}
+
+.puntos a {
+    position: relative;
+    z-index: 2; /* Asegura que el texto y el botón estén sobre la capa */
+}
+
+/* Sección de puntos de reciclaje 
 .puntos {
     background-image: url('images/hero.jpg');
     background-size: cover;
@@ -82,9 +114,11 @@ body {
     font-size: 1.2em;
     margin-bottom: 20px;
 }
-
+*/
 .btn {
-    background-color: #4CAF50;
+    z-index: 2;
+    background: linear-gradient(90deg,
+        #27b1f1, #3bf163);
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -94,7 +128,8 @@ body {
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background: linear-gradient(90deg,
+        #02547a, #0b8024)
 }
 
 /* Sección de descripción */
@@ -122,19 +157,50 @@ body {
 
 .voluntariado {
     padding: 50px 20px;
-    background-color: #4CAF50;
+    background: linear-gradient(135deg, #0d123d, #1d6fb8); /* Mezcla de azul y negro */
     color: white;
     text-align: center;
+    border-radius: 10px;
 }
 
 .voluntariado h2 {
-    font-size: 2em;
+    font-size: 1.8em; /* Tamaño del título un poco más pequeño */
     margin-bottom: 20px;
+    color: #0509e9; /* Tono de azul para el título */
 }
 
 .voluntariado p {
-    font-size: 1.2em;
+    font-size: 0.9em; /* Tamaño del texto más pequeño */
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #f0f0f0; /* Texto más claro para mayor contraste */
 }
+
+
+
+/* Estilos para el botón de voluntariado */
+.voluntariado .btn {
+    background: linear-gradient(90deg,
+        #27b1f1, #3bf163,
+        #3bffb4, #4d65eb);
+    color: white; /* Color del texto */
+    padding: 15px 30px; /* Más espacio interno (padding) */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 20px;
+    border-radius: 30px; /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transiciones */
+}
+
+.voluntariado .btn:hover {
+    background: linear-gradient(90deg,
+        #013f10, #3bf163,
+        #017046, #0826d1);
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
+}
+
 
 .testimonios {
     padding: 50px 20px;
@@ -148,6 +214,76 @@ body {
 
 .testimonios p {
     font-size: 1.2em;
+}
+
+.description {
+    background: url('nature.jpg') center/cover no-repeat; /* Fondo con imagen */
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    position: relative;
+}
+
+.description::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para mejorar la legibilidad */
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.description h2 {
+    font-size: 2em;
+    color: #629b06; /* Color llamativo */
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    z-index: 2;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+.description p {
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #fff;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.description p strong {
+    color: #ffde59; /* Resaltar palabras clave */
+}
+
+.description .highlights {
+    font-weight: bold;
+    color: #ffde59;
+    font-style: italic;
+}
+
+.description a {
+    background: #ffde59;
+    color: black;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.description a:hover {
+    background-color: #ffb800;
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
 }
 
 footer {
