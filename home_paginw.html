@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="homestyle.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/6.6.0/css/font-awesome.min.css">
+    <script src="homefunt.js"></script>
 </head>
 <body>
     <header class="Header">
@@ -73,12 +74,27 @@
 
     <footer>
         <section id="icons" class="icons"> 
-            <h2>Contactanos y siguenos en nuestras redes sociales</h2>
-            <br>Instagram <br><i class="fa-brands fa-instagram"></i>
-            <br>Email <br><i class="fa-regular fa-envelope"></i>
-            <br> Teléfono <br><i class="fa-solid fa-phone-volume"></i>
+            <h2>Contáctanos y síguenos en nuestras redes sociales</h2>
+            <form onsubmit="validarFormulario()" class="contacto" >
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Correo:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        
+            <div class="iconos">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-regular fa-envelope"></i>
+                <i class="fa-solid fa-phone-volume"></i>
+            </div>
         </section>
-        <br><p>&copy; 2024 Alterra</p>
+        
+        <br>
+        <p>&copy; 2024 Alterra</p>
     </footer>
+    
 </body>
 </html>

@@ -259,42 +259,62 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.description p strong {
-    color: #ffde59; /* Resaltar palabras clave */
-}
-
-.description .highlights {
-    font-weight: bold;
-    color: #ffde59;
-    font-style: italic;
-}
-
-.description a {
-    background: #ffde59;
-    color: black;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 2;
-    position: relative;
-}
-
-.description a:hover {
-    background-color: #ffb800;
-    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
-}
-
 footer {
+    background-color: #333;
     padding: 20px;
     text-align: center;
-    background-color: #333;
     color: white;
 }
 
-footer i {
-    font-size: 28px;
-    margin: 15px;
+
+.icons {
+    position: relative;
+}
+
+.contacto {
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contacto label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contacto input,
+.contacto textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contacto button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contacto button:hover {
+    background-color: #0056b3;
+}
+
+.iconos {
+    position: relative;
+    
+}
+
+.iconos i {
+    padding: 10px;
+    margin: 30px;
+    font-size: 30px;
+    margin-left: 15px;
 
 }
