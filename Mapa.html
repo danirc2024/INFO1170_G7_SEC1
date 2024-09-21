@@ -16,6 +16,8 @@
 </head>
 <body>
     <h1>Puntos Móviles de Reciclaje en Temuco</h1>
+    <button onclick="filterByLocation()">Buscar Puntos Cercanos</button>
+    <button onclick="showUserLocation()">Mostrar Mi Ubicación</button>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -164,6 +166,89 @@
                 <b>¿Qué se puede reciclar aquí?:</b> ${punto.materiales}
             `);
         });
+ 
+
+    var userIcon = L.icon({
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',  // Icono de ubicación
+        iconSize: [35, 35],  // Tamaño del icono
+        iconAnchor: [17, 35],  // Punto de anclaje (la punta del ícono)
+        popupAnchor: [0, -35]  // Punto donde se mostrará el popup relativo al ícono
+    });
+
+    // Función para mostrar la ubicación actual del usuario
+    function showUserLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var userLat = position.coords.latitude;
+                var userLon = position.coords.longitude;
+
+                // Añadir un marcador con el icono de ubicación del usuario
+                var userMarker = L.marker([userLat, userLon], { icon: userIcon }).addTo(map);
+                userMarker.bindPopup("<strong>¡Estás aquí!</strong>").openPopup();
+
+                // Centramos el mapa en la ubicación del usuario
+                map.setView([userLat, userLon], 13);
+            }, function() {
+                alert("No se pudo obtener la ubicación actual.");
+            });
+        } else {
+            alert("La geolocalización no está disponible en este navegador.");
+        }
+    }
+    // Función para calcular la distancia entre dos coordenadas
+    function getDistance(lat1, lon1, lat2, lon2) {
+            var R = 6371; // Radio de la Tierra en km
+            var dLat = (lat2 - lat1) * Math.PI / 180;
+            var dLon = (lon2 - lon1) * Math.PI / 180;
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var distance = R * c;
+            return distance; // Distancia en km
+        }
+
+        // Función para obtener la ubicación actual del usuario y filtrar los puntos cercanos
+    function filterByLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var userLat = position.coords.latitude;
+                var userLon = position.coords.longitude;
+
+                // Filtrar puntos de reciclaje a menos de 5 km del usuario
+                var puntosCercanos = puntosReciclaje.filter(function(punto) {
+                    var distance = getDistance(userLat, userLon, punto.coords[0], punto.coords[1]);
+                    return distance <= 5; // Filtrar los que estén a 5 km o menos
+                });
+
+                // Limpiar el mapa de los marcadores anteriores
+                map.eachLayer(function(layer) {
+                    if (layer instanceof L.Marker) {
+                        map.removeLayer(layer);
+                    }
+                });
+
+                // Añadir los puntos cercanos al mapa
+                puntosCercanos.forEach(function(punto) {
+                    var marker = L.marker(punto.coords, { icon: recycleIcon }).addTo(map);
+                    marker.bindPopup(`
+                        <strong>${punto.name}</strong><br>
+                        <b>Dirección:</b> ${punto.direccion}<br>
+                        <b>Horarios:</b> ${punto.horario}<br>
+                        <b>¿Qué se puede reciclar aquí?:</b> ${punto.materiales}
+                    `);
+                });
+
+                if (puntosCercanos.length === 0) {
+                    alert("No se encontraron puntos de reciclaje cercanos.");
+                }
+            }, function() {
+                alert("No se pudo obtener la ubicación actual.");
+            });
+        } else {
+            alert("La geolocalización no está disponible en este navegador.");
+        }
+    }
     </script>
 </body>
 </html>
