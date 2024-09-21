@@ -71,7 +71,7 @@ body {
                       url('limpiando.jpg'),
                       url('puntolimpio.jpg'),
                       url('limpiando.jpg');
-    background-size: 20% 50%, 20% 50%, 20% 50%, 20% 50%, 20% 50%; /* Tamaños ajustados */
+    background-size: 20% 50%, 20% 50%, 20% 50%, 20% 50%, 40% 70%; /* Tamaños ajustados */
     background-position: top left, top right, bottom left, bottom right, center; /* Posiciones de cada imagen */
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat; /* Evitar repetición de imágenes */
     color: white;
@@ -170,8 +170,8 @@ body {
 }
 
 .voluntariado p {
-    font-size: 0.9em; /* Tamaño del texto más pequeño */
-    line-height: 1.6; /* Espaciado entre líneas */
+    font-size: 1em; /* Tamaño del texto más pequeño */
+    line-height: 2; /* Espaciado entre líneas */
     color: #f0f0f0; /* Texto más claro para mayor contraste */
 }
 
