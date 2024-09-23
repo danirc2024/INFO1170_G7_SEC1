@@ -39,7 +39,7 @@
 
         // Establecer los niveles de zoom mínimo y máximo
         map.setMinZoom(12);
-        map.setMaxZoom(16);
+        map.setMaxZoom(18);
 
         // Añadir mapa base desde OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -48,7 +48,7 @@
 
         // Definir el icono personalizado para los puntos móviles
         var recycleIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/365/365116.png',  // Icono de reciclaje limpio
+            iconUrl: 'IconoVerde.png',  // Icono de reciclaje limpio
             iconSize: [30, 30],  // Tamaño del icono
             iconAnchor: [15, 30],  // Anclar el icono al centro
             popupAnchor: [0, -30]  // Anclar el popup arriba del icono
@@ -56,105 +56,106 @@
 
         // Lista de puntos móviles con sus datos
         var puntosReciclaje = [
-            {
-                name: "Punto Móvil de reciclaje Pedro de Valdivia",
-                coords: [-38.7382, -72.5892],
-                direccion: "Av. Gabriela Mistral con Calle Recreo, Temuco.",
-                horario: "Primera y Segunda semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Costanera del Cautín",
-                coords: [-38.7440, -72.6133],
-                direccion: "Río Rhin con Av. Costanera, Temuco.",
-                horario: "Primera y Segunda semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Fundo El Carmen",
-                coords: [-38.7079, -72.6522],
-                direccion: "Los Químicos con Los Fundadores, Temuco.",
-                horario: "Primera y Segunda semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Amanecer",
-                coords: [-38.7520, -72.6081],
-                direccion: "Calle Géminis entre Venus y Neptuno, Temuco.",
-                horario: "Primera y Segunda semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Labranza",
-                coords: [-38.7475, -72.6375],
-                direccion: "Calle 1 Norte a un costado del Colegio NewHarvest, Temuco.",
-                horario: "Primera y Segunda semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Centro",
-                coords: [-38.7309, -72.5889],
-                direccion: "Monte Ararat con Prieto Norte, Temuco.",
-                horario: "Primera y Segunda semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Pueblo Nuevo",
-                coords: [-38.7427, -72.6067],
-                direccion: "Bascuñán Santa María con Valdivia y David Perry, Temuco.",
-                horario: "Primera y Segunda semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Pedro de Valdivia",
-                coords: [-38.7290, -72.5972],
-                direccion: "Ayelen con Circunvalación Francisco Huenchumilla, Temuco.",
-                horario: "Tercera y Cuarta semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Costanera de Cautín",
-                coords: [-38.7443, -72.6145],
-                direccion: "Av. Costanera con Av. Pircunche, Temuco.",
-                horario: "Tercera y Cuarta semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Fundo El Carmen",
-                coords: [-38.7087, -72.6539],
-                direccion: "Calle Jorge Teillier con Los Escritores, Temuco.",
-                horario: "Tercera y Cuarta semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Sector Poniente",
-                coords: [-38.7385, -72.6075],
-                direccion: "Interior Parque Estadio Germán Becker, Temuco.",
-                horario: "Tercera y Cuarta semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Amanecer",
-                coords: [-38.7523, -72.6100],
-                direccion: "Venecia con Garibaldi, Temuco.",
-                horario: "Tercera y Cuarta semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Centro",
-                coords: [-38.7320, -72.5977],
-                direccion: "Estacionamiento Unimarc San Martín, Temuco.",
-                horario: "Tercera y Cuarta semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            },
-            {
-                name: "Punto Móvil de reciclaje Pueblo Nuevo",
-                coords: [-38.7402, -72.6149],
-                direccion: "Rudecindo Ortega 01780, Al interior del Outlet Easton, Temuco.",
-                horario: "Tercera y Cuarta semana de cada mes",
-                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
-            }
-        ];
+    {
+        name: "Punto Móvil de reciclaje Pedro de Valdivia",
+        coords: [-38.7282068124852, -72.61523605518013], 
+        direccion: "Av. Gabriela Mistral con Calle Recreo, Temuco.",
+        horario: "Primera y Segunda semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Costanera del Cautín",
+        coords: [-38.72638033747407, -72.55784957055222],
+        direccion: "Río Rhin con Av. Costanera, Temuco.",
+        horario: "Primera y Segunda semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Fundo El Carmen",
+        coords: [-38.715113801368354, -72.64814096768472],
+        direccion: "Los Químicos con Los Fundadores, Temuco.",
+        horario: "Primera y Segunda semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Amanecer",
+        coords: [-38.75755280048922, -72.63717901190932],
+        direccion: "Calle Géminis entre Venus y Neptuno, Temuco.",
+        horario: "Primera y Segunda semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Labranza",
+        coords: [-38.76701236507645, -72.75945304579575],
+        direccion: "Calle 1 Norte a un costado del Colegio NewHarvest, Temuco.",
+        horario: "Primera y Segunda semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Centro",
+        coords: [-38.72633155659468, -72.59874640374868],
+        direccion: "Monte Ararat con Prieto Norte, Temuco.",
+        horario: "Primera y Segunda semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Pueblo Nuevo",
+        coords: [-38.72650528285448, -72.57335760603661],
+        direccion: "Bascuñán Santa María con Valdivia y David Perry, Temuco.",
+        horario: "Primera y Segunda semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Pedro de Valdivia",
+        coords: [-38.68952148931034, -72.6548629285696],
+        direccion: "Ayelen con Circunvalación Francisco Huenchumilla, Temuco.",
+        horario: "Tercera y Cuarta semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Costanera de Cautín",
+        coords: [-38.73147056738875, -72.55978313359098],
+        direccion: "Av. Costanera con Av. Pircunche, Temuco.",
+        horario: "Tercera y Cuarta semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Fundo El Carmen",
+        coords: [-38.71022091404364, -72.65980665767205],
+        direccion: "Calle Jorge Teillier con Los Escritores, Temuco.",
+        horario: "Tercera y Cuarta semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Sector Poniente",
+        coords: [-38.74169524946602, -72.62089435926406],
+        direccion: "Interior Parque Estadio Germán Becker, Temuco.",
+        horario: "Tercera y Cuarta semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Amanecer",
+        coords: [-38.755846561300864, -72.62222009631267],
+        direccion: "Venecia con Garibaldi, Temuco.",
+        horario: "Tercera y Cuarta semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Centro",
+        coords: [-38.73886374950443, -72.61157229610258],
+        direccion: "Estacionamiento Unimarc San Martín, Temuco.",
+        horario: "Tercera y Cuarta semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    },
+    {
+        name: "Punto Móvil de reciclaje Pueblo Nuevo",
+        coords: [-38.71247454664176, -72.56250294505583],
+        direccion: "Rudecindo Ortega 01780, Al interior del Outlet Easton, Temuco.",
+        horario: "Tercera y Cuarta semana de cada mes",
+        materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios y pilas."
+    }
+];
+
 
         // Añadir cada punto móvil al mapa con su popup
         puntosReciclaje.forEach(function(punto) {

@@ -24,23 +24,43 @@ h1 {
 }
 
 
+
 .leaflet-popup-content-wrapper {
-    background-color: #f7fff7;  
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;  
+    border-radius: 10px;
+    border: 1px solid #228B22;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    padding: 10px;
 }
 
 .leaflet-popup-content h2 {
     margin: 0;
-    color: #228B22;
+    color: #2f4f4f;  
     font-size: 1.5rem;
+    font-family: 'Arial', sans-serif;  
 }
 
 .leaflet-popup-content p {
-    color: #2f4f4f; 
+    color: #444444;
     font-size: 1rem;
-    line-height: 1.4;
+    line-height: 1.5;
+    margin-top: 5px;
 }
+
+.leaflet-popup-tip-container {
+    display: none;  
+}
+
+
+.leaflet-popup {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.leaflet-popup-open {
+    opacity: 1;
+}
+
 
 
 button {
