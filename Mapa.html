@@ -189,7 +189,8 @@
 
                 // Centramos el mapa en la ubicación del usuario
                 map.setView([userLat, userLon], 13);
-            }, function() {
+            }, function(error) {
+                console.error(error);
                 alert("No se pudo obtener la ubicación actual.");
             });
         } else {
