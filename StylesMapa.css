@@ -23,6 +23,17 @@ h1 {
     border-radius: 10px; 
 }
 
+.filter-container {
+    margin: 20px;
+    text-align: center;
+}
+
+ .filter-container select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
 
 
 .leaflet-popup-content-wrapper {
