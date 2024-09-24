@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
-        <h2 class="Reg">Registro Aqui</h2>
+    <form id="registrationForm">
+        <h2 class="Reg">Registro Aquí</h2>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -16,15 +16,15 @@
         <label for="email">Correo Electrónico:</label>
         <input type="email" id="email" name="email" placeholder="Correo@gmail.com" required>
 
-        <label for="boton">Te gustaria recibir informacion por correo?<br>
-            marca la casilla 👇
+        <label for="boton">¿Te gustaría recibir información por correo?<br>
+            Marca la casilla 👇
         </label>
         <input type="checkbox" id="boton" name="boton">
 
-        <input type="submit"> 
-
-
-
+        <input type="submit" value="Registrar"> 
+        <div id="feedback" class="feedback"></div>
     </form>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
