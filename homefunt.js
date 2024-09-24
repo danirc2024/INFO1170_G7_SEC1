@@ -53,12 +53,15 @@ formulario.addEventListener('submit', function (event) {
     nuevoTestimonio.innerHTML = `
         <div class="avatar">${nombre.charAt(0).toUpperCase()}</div>
         <div class="detalles">
-            <div class="estrellas">${'⭐'.repeat(estrellas)}</div>
+            <div class="estrellas">
+                ${'<i class="fa fa-star"></i>'.repeat(estrellas)}
+            </div>
             <p>${nombre}</p>
             <p>Hace unos momentos</p>
             <p>"${mensaje}"</p>
         </div>
     `;
+
 
     // Agregar el nuevo testimonio al slider
     slider.appendChild(nuevoTestimonio);
