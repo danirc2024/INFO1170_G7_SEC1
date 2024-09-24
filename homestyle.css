@@ -11,12 +11,19 @@ body {
 .Header {
     position: relative;
     padding: 20px;
-    background: url('Naturaleza_Felix-Mittermeier_Pexels.jpg') center/cover no-repeat;
+    background-size: 100% 100%;
+    animation: slider 20s linear infinite;
     color: white;
-    height: 300px;
+    height: 325px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+@keyframes slider {
+    0%{background-image: url('Naturaleza_Felix-Mittermeier_Pexels.jpg');}
+    30%{background-image: url('https://wallpapers.com/images/hd/green-nature-leaf-with-dew-pdju0rwgg16bn5nb.jpg');}
+    60%{background-image: url('https://i.pinimg.com/originals/de/55/0d/de550d8052bf677f9756cdefb35544e7.jpg');}
+    100%{background-image: url('https://wallpapercave.com/wp/wp7532100.jpg');}
 }
 
 .INICSERVUSCONTAC {
