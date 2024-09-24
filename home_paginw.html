@@ -146,7 +146,7 @@
     <footer>
         <section id="icons" class="icons"> 
             <h2>Contáctanos y síguenos en nuestras redes sociales</h2>
-            <form onsubmit="validarFormulario()" class="contacto" >
+            <form onsubmit="return validarFormulario()" class="contacto" >
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Correo:</label>
@@ -155,6 +155,7 @@
                 <textarea id="message" name="message" rows="4" required></textarea>
                 <button type="submit">Enviar</button>
             </form>
+          
         
             <div class="iconos">
                 <i class="fa-brands fa-instagram"></i>
