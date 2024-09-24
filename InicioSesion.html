@@ -1,9 +1,9 @@
 <!DOCTYPE Html>
-<Html Lang = "Es">
+<Html Lang="Es">
 
 <Head>
     <Meta Charset="UTF-8"></Meta>
-    <Meta Name = "Viewport" Content = "Width = Device-Width, Initial-Scale = 1.0"></Meta>
+    <Meta Name="Viewport" Content="Width=Device-Width, Initial-Scale=1.0"></Meta>
 
     <Title>Inicio De Sesión</Title>
     
@@ -26,6 +26,7 @@
             Border-Radius: 20Px;
             Padding: 30Px;
             Width: 350Px;
+            Position: Relative;
         }
 
         H2 {
@@ -52,37 +53,38 @@
             Font-Size: 20x;
         }
 
-        .Login-Btn, .Back-Btn, .Submit-Btn {
+        .Login-Btn, .Back-Btn, .Submit-Btn, .Return-Btn {
             Width: 100%;
             Padding: 10Px;
             Border: None;
             Color: hsl(0, 0%, 100%);
             Background-Color: hsl(121, 95%, 30%);
+            Font-Family: Times New Roman;
             Border-Radius: 5Px;
             Font-Size: 18Px;
             Cursor: Pointer;
         }
 
-        .Login-Btn:Hover, .Back-Btn:Hover, .Submit-Btn:Hover {
+        .Login-Btn:Hover, .Back-Btn:Hover, .Submit-Btn:Hover, .Return-Btn:Hover {
             Background-Color: hsl(121, 80%, 35%);
         }
 
-        .Forgot-Password {
+        .Forgot-Password, .Change-Password {
             Text-Align: Center;
             Margin-Top: 10Px;
+            Margin-bottom: 10Px
         }
 
-        .Forgot-Password A {
+        .Forgot-Password A, .Change-Password A {
             Color: hsl(121, 95%, 30%);
             Text-Decoration: None;
         }
 
-        .Forgot-Password A:Hover {
+        .Forgot-Password A:Hover, .Change-Password A:Hover {
             Text-Decoration: Underline;
         }
 
-        
-        .Back-Btn {
+        .Back-Btn, .Return-Btn {
             Margin-Top: 20Px;
             Display: Block;
             Text-Align: Center;
@@ -100,78 +102,132 @@
             Color: hsl(121, 80%, 30%);
             Font-Weight: Bold;
         }
-
     </Style>
 
     <Script>
+        let tempPassword = "";
+
         function toggleForms() {
             document.getElementById('login-form').classList.toggle('Hidden');
             document.getElementById('forgot-password-form').classList.toggle('Hidden');
         }
 
+        function toggleChangePasswordForm() {
+            document.getElementById('forgot-password-form').classList.add('Hidden');
+            document.getElementById('change-password-form').classList.remove('Hidden');
+        }
+
+        function showForgotPasswordForm() {
+            document.getElementById('change-password-form').classList.add('Hidden');
+            document.getElementById('forgot-password-form').classList.remove('Hidden');
+        }
+
         function generateTemporaryPassword() {
             const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            let password = "";
+            tempPassword = "";
             for (let i = 0; i < 10; i++) {
-                password += chars.charAt(Math.floor(Math.random() * chars.length));
+                tempPassword += chars.charAt(Math.floor(Math.random() * chars.length));
             }
-            document.getElementById('temp-password').innerText = "Tu contraseña provisoria es: " + password;
+            document.getElementById('temp-password').innerText = "Tu Contraseña De Emergencia Es: " + tempPassword;
             document.getElementById('temp-password').classList.remove('Hidden');
+            return false;
+        }
+
+        function validatePasswordChange() {
+            const emergencyPassword = document.getElementById("emergency-password").value;
+            const newPassword = document.getElementById("new-password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+
+            if (emergencyPassword !== tempPassword) {
+                document.getElementById("password-message").innerText = "Contraseña De Emergencia Incorrecta.";
+                return false;
+            }
+
+            if (newPassword !== confirmPassword) {
+                document.getElementById("password-message").innerText = "Las Contraseñas No Coinciden.";
+                return false;
+            }
+
+            document.getElementById("password-message").innerText = "¡Contraseña Cambiada Con Exito!";
             return false;
         }
     </Script>
 
 </Head>
 
-
-
 <Body>
-    <Div Class = "Login-Container">
+    <Div Class="Login-Container">
 
-        <H2>Inicio De Sesión</H2>
-
-       
-        <Form Id="login-form" Action = "#" Method="post">
-            <Div Class = "Input-Group">
-                <Label For = "Username"> Usuario: </Label>
-                <Input Type = "Text" Id = "Username" Name = "Username" Required>
+        <Form Id="login-form" Action="#" Method="post">
+            <H2>Inicio De Sesión</H2>
+            <Div Class="Input-Group">
+                <Label For="Username"> Usuario: </Label>
+                <Input Type="Text" Id="Username" Name="Username" Required>
             </Div>
 
-            <Div Class = "Input-Group">
-                <Label For = "Password"> Contraseña: </label>
-                <Input Type = "Password" Id = "Password" Name = "Password" Required>
+            <Div Class="Input-Group">
+                <Label For="Password"> Contraseña: </label>
+                <Input Type="Password" Id="Password" Name="Password" Required>
             </Div>
 
-            <Button Type = "Submit" Class = "Login-Btn"> Iniciar Sesión </Button>
-
-            <Div Class = "Forgot-Password">
+            <Div Class="Forgot-Password">
                 <A Href="javascript:void(0)" Onclick="toggleForms()"> ¿Olvidaste Tu Contraseña? </A>
             </Div>
+
+            <Button Type="Submit" Class="Login-Btn"> Iniciar Sesión </Button>
         </Form>
 
-        
         <Form Id="forgot-password-form" Class="Hidden" Onsubmit="return generateTemporaryPassword()">
-            <Div Class = "Input-Group">
-                <Label For = "Email"> Correo Electrónico: </label>
-                <Input Type = "Email" Id = "Email" Name = "Email" Required>
+            <H2>Recuperar Contraseña</H2>
+            <Div Class="Input-Group">
+                <Label For="Email"> Correo Electrónico: </label>
+                <Input Type="Email" Id="Email" Name="Email" Required>
             </Div>
 
-            <Button Type = "Submit" Class = "Submit-Btn"> Recuperar Contraseña </Button>
-
-            <Div Class = "Forgot-Password">
-                <A Href="javascript:void(0)" Onclick="toggleForms()"> Volver al Inicio de Sesión </A>
+            <Div Class="Change-Password">
+                <A Href="javascript:void(0)" Onclick="toggleChangePasswordForm()"> ¿Desea Cambiar Contraseña? </A>
             </Div>
+
+            <Button Type="Submit" Class="Submit-Btn"> Contraseña Emergencia </Button>
+
+            <Button Type="Button" Class="Back-Btn" Onclick="toggleForms()"> Volver Atras </Button>
         </Form>
 
-        
+        <Form Id="change-password-form" Class="Hidden" Onsubmit="return validatePasswordChange()">
+            <H2>Cambiar Contraseña</H2>
+            <Div Class="Input-Group">
+                <Label For="emergency-password">Contraseña Emergencia:</Label>
+                <Input Type="Password" Id="emergency-password" Name="emergency-password" Required>
+            </Div>
+
+            <Div Class="Input-Group">
+                <Label For="new-password">Nueva Contraseña:</Label>
+                <Input Type="Password" Id="new-password" Name="new-password" Required>
+            </Div>
+
+            <Div Class="Input-Group">
+                <Label For="confirm-password">Confirmar Contraseña:</Label>
+                <Input Type="Password" Id="confirm-password" Name="confirm-password" Required>
+            </Div>
+
+            <Button Type="Submit" Class="Submit-Btn">Cambiar Contraseña</Button>
+
+            <Button Type="Button" Class="Back-Btn" Onclick="showForgotPasswordForm()"> Volver Atras </Button>
+
+            <Div Id="password-message" Class="Password-Message"></Div>
+        </Form>
+
         <Div Id="temp-password" Class="Password-Message Hidden"></Div>
 
-       
-        <A Href="home_paginw.html" Class="Back-Btn">Volver Al Inicio</A>
-
+        <A Href="home_paginw.html" Class="Return-Btn">Volver Inicio</A>
     </Div>
 </Body>
 
 </Html>
+
+
+
+
+
 
 
