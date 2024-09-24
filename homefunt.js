@@ -1,9 +1,4 @@
 function validarFormulario() {
-<<<<<<< HEAD
-    alert("Formulario enviado correctamente.");
-}
-
-=======
     const nombre = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const mensaje = document.getElementById('message').value;
@@ -24,7 +19,6 @@ function validarFormulario() {
 }
 
 
->>>>>>> 862a52d0286536125115e2f2f737f3f43f361e47
 const slider = document.querySelector('.testimonios-slider');
 const izquierdaBtn = document.getElementById('izquierda-btn');
 const derechaBtn = document.getElementById('derecha-btn');
@@ -59,12 +53,15 @@ formulario.addEventListener('submit', function (event) {
     nuevoTestimonio.innerHTML = `
         <div class="avatar">${nombre.charAt(0).toUpperCase()}</div>
         <div class="detalles">
-            <div class="estrellas">${'⭐'.repeat(estrellas)}</div>
+            <div class="estrellas">
+                ${'<i class="fa fa-star"></i>'.repeat(estrellas)}
+            </div>
             <p>${nombre}</p>
             <p>Hace unos momentos</p>
             <p>"${mensaje}"</p>
         </div>
     `;
+
 
     // Agregar el nuevo testimonio al slider
     slider.appendChild(nuevoTestimonio);

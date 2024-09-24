@@ -413,7 +413,7 @@
         } else {
             alert("La geolocalización no está disponible en este navegador.");
         }
-    }
+    };
     // Función para calcular la distancia entre dos coordenadas
     function getDistance(lat1, lon1, lat2, lon2) {
             var R = 6371; // Radio de la Tierra en km
@@ -425,7 +425,7 @@
             var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
             var distance = R * c;
             return distance; // Distancia en km
-        }
+        };
 
         // Función para obtener la ubicación actual del usuario y filtrar los puntos cercanos
     function filterByLocation() {
