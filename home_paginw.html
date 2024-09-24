@@ -6,7 +6,7 @@
     <title>Reciclaje en Temuco</title>
     <link rel="stylesheet" href="homestyle.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
     <header class="Header">
@@ -38,7 +38,21 @@
 
         <section id="mapa" class="map-section">
             <h2>Puntos de Reciclaje Cercanos</h2>
-            <div id="map"></div> 
+            <!-- Filtro para materiales reciclables -->
+            <div class="filter-container">
+                <label for="material-filter">Filtrar por material reciclable:</label>
+                <select id="material-filter">
+                    <option value="">Todos</option>
+                    <option value="Botellas PET">Botellas PET</option>
+                    <option value="Cartón">Cartón</option>
+                    <option value="Papel">Papel</option>
+                    <option value="Latas de aluminio">Latas de aluminio</option>
+                    <option value="Revistas">Revistas</option>
+                    <option value="Diarios">Diarios</option>
+                    <option value="Pilas">Pilas</option>
+                </select>
+            </div>
+            <div id="map"></div>
         </section>
 
         <section class="voluntariado">
@@ -193,5 +207,182 @@
     </footer>
 
     <script src="homefunt.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inicializar el mapa centrado en Temuco
+        var map = L.map('map').setView([-38.7359, -72.5904], 13);
+
+        // Limitar el área de movimiento del mapa a Temuco
+        var bounds = L.latLngBounds(
+            L.latLng(-38.77, -72.67), // Suroeste
+            L.latLng(-38.70, -72.51)  // Noreste
+        );
+        map.setMaxBounds(bounds);
+        
+        // Evitar que el usuario se desplace fuera de los límites
+        map.on('drag', function() {
+            map.panInsideBounds(bounds, { animate: false });
+        });
+
+        // Establecer los niveles de zoom mínimo y máximo
+        map.setMinZoom(12);
+        map.setMaxZoom(18);
+
+        // Añadir mapa base desde OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Definir el icono personalizado para los puntos móviles
+        var recycleIcon = L.icon({
+            iconUrl: 'IconoVerde.webp',  // Icono de reciclaje limpio
+            iconSize: [30, 30],  // Tamaño del icono
+            iconAnchor: [15, 30],  // Anclar el icono al centro
+            popupAnchor: [0, -30]  // Anclar el popup arriba del icono
+        });
+
+        // Lista de puntos móviles con sus datos
+        var puntosReciclaje = [
+        {
+                name: "Punto Móvil de reciclaje Pedro de Valdivia",
+                coords: [-38.7282068124852, -72.61523605518013],
+                direccion: "Av. Gabriela Mistral con Calle Recreo, Temuco.",
+                horario: "Primera y Segunda semana de cada mes",
+                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios, y pilas."
+            },
+            {
+                name: "Punto Móvil de reciclaje Costanera del Cautín",
+                coords: [-38.72638033747407, -72.55784957055222],
+                direccion: "Río Rhin con Av. Costanera, Temuco.",
+                horario: "Primera y Segunda semana de cada mes",
+                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios, y pilas."
+            },
+            {
+                name: "Punto Móvil de reciclaje Fundo El Carmen",
+                coords: [-38.715113801368354, -72.64814096768472],
+                direccion: "Los Químicos con Los Fundadores, Temuco.",
+                horario: "Primera y Segunda semana de cada mes",
+                materiales: "Botellas PET, cartón, papel, latas de aluminio, revistas, diarios, y pilas."
+            },
+            {
+                name: "Punto Móvil de reciclaje Amanecer",
+                coords: [-38.75755280048922, -72.63717901190932],
+                direccion: "Calle Géminis entre Venus y Neptuno, Temuco.",
+                horario: "Primera y Segunda semana de cada mes",
+                materiales: "Cartón, papel, revistas, diarios."
+            },
+            {
+                name: "Punto Móvil de reciclaje Labranza",
+                coords: [-38.76701236507645, -72.75945304579575],
+                direccion: "Calle 1 Norte a un costado del Colegio NewHarvest, Temuco.",
+                horario: "Primera y Segunda semana de cada mes",
+                materiales: "Cartón, papel, revistas, diarios."
+            },
+            {
+                name: "Punto Móvil de reciclaje Centro",
+                coords: [-38.72633155659468, -72.59874640374868],
+                direccion: "Monte Ararat con Prieto Norte, Temuco.",
+                horario: "Primera y Segunda semana de cada mes",
+                materiales: "Cartón, papel, revistas, diarios."
+            },
+            {
+                name: "Punto Móvil de reciclaje Pueblo Nuevo",
+                coords: [-38.72650528285448, -72.57335760603661],
+                direccion: "Bascuñán Santa María con Valdivia y David Perry, Temuco.",
+                horario: "Primera y Segunda semana de cada mes",
+                materiales: "Botellas PET, latas de aluminio, y pilas."
+            },
+            {
+                name: "Punto Móvil de reciclaje Pedro de Valdivia",
+                coords: [-38.68952148931034, -72.6548629285696],
+                direccion: "Ayelen con Circunvalación Francisco Huenchumilla, Temuco.",
+                horario: "Tercera y Cuarta semana de cada mes",
+                materiales: "Botellas PET, latas de aluminio, y pilas."
+            },
+            {
+                name: "Punto Móvil de reciclaje Costanera de Cautín",
+                coords: [-38.73147056738875, -72.55978313359098],
+                direccion: "Av. Costanera con Av. Pircunche, Temuco.",
+                horario: "Tercera y Cuarta semana de cada mes",
+                materiales: "Botellas PET, latas de aluminio, y pilas."
+            },
+            {
+                name: "Punto Móvil de reciclaje Fundo El Carmen",
+                coords: [-38.71022091404364, -72.65980665767205],
+                direccion: "Calle Jorge Teillier con Los Escritores, Temuco.",
+                horario: "Tercera y Cuarta semana de cada mes",
+                materiales: "Botellas PET, cartón, papel."
+            },
+            {
+                name: "Punto Móvil de reciclaje Sector Poniente",
+                coords: [-38.74169524946602, -72.62089435926406],
+                direccion: "Interior Parque Estadio Germán Becker, Temuco.",
+                horario: "Tercera y Cuarta semana de cada mes",
+                materiales: "Botellas PET, cartón, papel."
+            },
+            {
+                name: "Punto Móvil de reciclaje Amanecer",
+                coords: [-38.755846561300864, -72.62222009631267],
+                direccion: "Venecia con Garibaldi, Temuco.",
+                horario: "Tercera y Cuarta semana de cada mes",
+                materiales: "Botellas PET, cartón, papel."
+            },
+            {
+                name: "Punto Móvil de reciclaje Centro",
+                coords: [-38.73886374950443, -72.61157229622266],
+                direccion: "Estacionamiento Unimarc San Martín, Temuco.",
+                horario: "Tercera y Cuarta semana de cada mes",
+                materiales: "Latas de aluminio, y pilas."
+            },
+            {
+                name: "Punto Móvil de reciclaje Pueblo Nuevo",
+                coords: [-38.71247454664176, -72.56250294505583],
+                direccion: "Rudecindo Ortega 01780, Al interior del Outlet Easton, Temuco.",
+                horario: "Tercera y Cuarta semana de cada mes",
+                materiales: "Latas de aluminio, y pilas."
+            }
+            
+        ];
+
+        // Función para agregar los marcadores al mapa
+        function agregarMarcadores(puntos) {
+            puntos.forEach(function(punto) {
+                L.marker(punto.coords, { icon: recycleIcon }).addTo(map)
+                    .bindPopup("<b>" + punto.name + "</b><br>" + 
+                               "<b>Dirección:</b> " + punto.direccion + "<br>" +
+                               "<b>Horario:</b> " + punto.horario + "<br>" +
+                               "<b>Materiales aceptados:</b> " + punto.materiales);
+            });
+        }
+
+        // Agregar todos los puntos de reciclaje inicialmente
+        agregarMarcadores(puntosReciclaje);
+
+        // Filtrar puntos según el material seleccionado
+        document.getElementById('material-filter').addEventListener('change', function() {
+            var materialSeleccionado = this.value.toLowerCase();
+
+            // Eliminar todos los marcadores antes de agregar los nuevos
+            map.eachLayer(function(layer) {
+                if (layer instanceof L.Marker) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            // Filtrar los puntos de reciclaje
+            var puntosFiltrados = puntosReciclaje.filter(function(punto) {
+                return punto.materiales.toLowerCase().includes(materialSeleccionado);
+            });
+
+            // Agregar los puntos filtrados al mapa
+            if (puntosFiltrados.length > 0) {
+                agregarMarcadores(puntosFiltrados);
+            } else {
+                // Si no se selecciona ningún material, mostrar todos los puntos
+                agregarMarcadores(puntosReciclaje);
+            }
+        });
+    </script>
 </body>
 </html>
