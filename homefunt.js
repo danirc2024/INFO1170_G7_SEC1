@@ -1,7 +1,30 @@
 function validarFormulario() {
+<<<<<<< HEAD
     alert("Formulario enviado correctamente.");
 }
 
+=======
+    const nombre = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const mensaje = document.getElementById('message').value;
+
+    if (nombre.length < 3) {
+        alert('El nombre debe tener al menos 3 caracteres.');
+        return false;
+    }
+    if (!email.includes('@')) {
+        alert('Por favor, ingresa un correo válido.');
+        return false;
+    }
+    if (mensaje.trim() === '') {
+        alert('El mensaje no puede estar vacío.');
+        return false;
+    }
+    return true;
+}
+
+
+>>>>>>> 862a52d0286536125115e2f2f737f3f43f361e47
 const slider = document.querySelector('.testimonios-slider');
 const izquierdaBtn = document.getElementById('izquierda-btn');
 const derechaBtn = document.getElementById('derecha-btn');
