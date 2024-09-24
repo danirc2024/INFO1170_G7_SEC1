@@ -52,19 +52,18 @@
             Font-Size: 20x;
         }
 
-        .Login-Btn {
+        .Login-Btn, .Back-Btn, .Submit-Btn {
             Width: 100%;
             Padding: 10Px;
             Border: None;
             Color: hsl(0, 0%, 100%);
             Background-Color: hsl(121, 95%, 30%);
-            Font-Family: Times New Roman;
             Border-Radius: 5Px;
             Font-Size: 18Px;
             Cursor: Pointer;
         }
 
-        .Login-Btn:Hover {
+        .Login-Btn:Hover, .Back-Btn:Hover, .Submit-Btn:Hover {
             Background-Color: hsl(121, 80%, 35%);
         }
 
@@ -82,27 +81,46 @@
             Text-Decoration: Underline;
         }
 
-        /* Estilo para el botón de Volver al inicio */
+        
         .Back-Btn {
-            Width: 100%;
-            Padding: 10Px;
             Margin-Top: 20Px;
-            Border: None;
-            Color: hsl(0, 0%, 100%);
-            Background-Color: hsl(121, 95%, 30%);
-            Border-Radius: 5Px;
-            Font-Size: 18Px;
-            Cursor: Pointer;
             Display: Block;
             Text-Align: Center;
             Text-Decoration: None;
             Box-Sizing: Border-Box;
         }
 
-        .Back-Btn:Hover {
-            Background-Color: hsl(121, 80%, 35%);
+        .Hidden {
+            Display: None;
         }
+
+        .Password-Message {
+            Margin-Top: 20Px;
+            Text-Align: Center;
+            Color: hsl(121, 80%, 30%);
+            Font-Weight: Bold;
+        }
+
     </Style>
+
+    <Script>
+        function toggleForms() {
+            document.getElementById('login-form').classList.toggle('Hidden');
+            document.getElementById('forgot-password-form').classList.toggle('Hidden');
+        }
+
+        function generateTemporaryPassword() {
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            let password = "";
+            for (let i = 0; i < 10; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('temp-password').innerText = "Tu contraseña provisoria es: " + password;
+            document.getElementById('temp-password').classList.remove('Hidden');
+            return false;
+        }
+    </Script>
+
 </Head>
 
 
@@ -112,9 +130,10 @@
 
         <H2>Inicio De Sesión</H2>
 
-        <Form Action = "#">
+       
+        <Form Id="login-form" Action = "#" Method="post">
             <Div Class = "Input-Group">
-                <Label For = "Username"> Usuario: </label>
+                <Label For = "Username"> Usuario: </Label>
                 <Input Type = "Text" Id = "Username" Name = "Username" Required>
             </Div>
 
@@ -126,14 +145,33 @@
             <Button Type = "Submit" Class = "Login-Btn"> Iniciar Sesión </Button>
 
             <Div Class = "Forgot-Password">
-                <A Href = "#"> ¿Olvidaste Tu Contraseña? </A>
+                <A Href="javascript:void(0)" Onclick="toggleForms()"> ¿Olvidaste Tu Contraseña? </A>
             </Div>
-
         </Form>
 
+        
+        <Form Id="forgot-password-form" Class="Hidden" Onsubmit="return generateTemporaryPassword()">
+            <Div Class = "Input-Group">
+                <Label For = "Email"> Correo Electrónico: </label>
+                <Input Type = "Email" Id = "Email" Name = "Email" Required>
+            </Div>
+
+            <Button Type = "Submit" Class = "Submit-Btn"> Recuperar Contraseña </Button>
+
+            <Div Class = "Forgot-Password">
+                <A Href="javascript:void(0)" Onclick="toggleForms()"> Volver al Inicio de Sesión </A>
+            </Div>
+        </Form>
+
+        
+        <Div Id="temp-password" Class="Password-Message Hidden"></Div>
+
+       
         <A Href="home_paginw.html" Class="Back-Btn">Volver Al Inicio</A>
 
     </Div>
 </Body>
 
 </Html>
+
+
