@@ -10,12 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('email').value;
 
         if (nombre && password && email) {
-            feedback.textContent = 'Usuario Registrado con Exito :)';
+            feedback.textContent = 'Usuario Registrado con Exitoo';
             feedback.className = 'feedback success';
-            form.reset(); // Reiniciar el formulario
+            alert('Usuario Registrado con Exito :D')
+            
+
+            setTimeout(() => {
+                window.location.href = 'home_paginw.html';
+            }, 2000);
+
+            form.reset();
         } else {
             feedback.textContent = 'Por favor, complete todos los campos.';
             feedback.className = 'feedback error';
+            alert('No se pudo Registrar, llene los campos solicitados :q')
         }
     });
 });
