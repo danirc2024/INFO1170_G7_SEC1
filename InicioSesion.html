@@ -58,14 +58,14 @@
             Border: None;
             Color: hsl(0, 0%, 100%);
             Background-Color: hsl(121, 95%, 30%);
-            
+            Font-Family: Times New Roman;
             Border-Radius: 5Px;
             Font-Size: 18Px;
             Cursor: Pointer;
         }
 
         .Login-Btn:Hover {
-            Background-Color: hsl(121, 95%, 30%);
+            Background-Color: hsl(121, 80%, 35%);
         }
 
         .Forgot-Password {
@@ -80,6 +80,27 @@
 
         .Forgot-Password A:Hover {
             Text-Decoration: Underline;
+        }
+
+        /* Estilo para el botón de Volver al inicio */
+        .Back-Btn {
+            Width: 100%;
+            Padding: 10Px;
+            Margin-Top: 20Px;
+            Border: None;
+            Color: hsl(0, 0%, 100%);
+            Background-Color: hsl(121, 95%, 30%);
+            Border-Radius: 5Px;
+            Font-Size: 18Px;
+            Cursor: Pointer;
+            Display: Block;
+            Text-Align: Center;
+            Text-Decoration: None;
+            Box-Sizing: Border-Box;
+        }
+
+        .Back-Btn:Hover {
+            Background-Color: hsl(121, 80%, 35%);
         }
     </Style>
 </Head>
@@ -98,7 +119,7 @@
             </Div>
 
             <Div Class = "Input-Group">
-                <Label For = "Password"> Contraseña: </Label>
+                <Label For = "Password"> Contraseña: </label>
                 <Input Type = "Password" Id = "Password" Name = "Password" Required>
             </Div>
 
@@ -109,6 +130,9 @@
             </Div>
 
         </Form>
+
+        <A Href="home_paginw.html" Class="Back-Btn">Volver Al Inicio</A>
+
     </Div>
 </Body>
 
