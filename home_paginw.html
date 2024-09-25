@@ -427,34 +427,6 @@
             });
         };
 
-        // Agregar todos los puntos de reciclaje inicialmente
-        agregarMarcadores(puntosReciclaje);
-
-        // Filtrar puntos según el material seleccionado
-        document.getElementById('material-filter').addEventListener('change', function() {
-            var materialSeleccionado = this.value.toLowerCase();
-
-            // Eliminar todos los marcadores antes de agregar los nuevos
-            map.eachLayer(function(layer) {
-                if (layer instanceof L.Marker) {
-                    map.removeLayer(layer);
-                }
-            });
-
-            // Filtrar los puntos de reciclaje
-            var puntosFiltrados = puntosReciclaje.filter(function(punto) {
-                return punto.materiales.toLowerCase().includes(materialSeleccionado);
-            });
-
-            // Agregar los puntos filtrados al mapa
-            if (puntosFiltrados.length > 0) {
-                agregarMarcadores(puntosFiltrados);
-            } else {
-                // Si no se selecciona ningún material, mostrar todos los puntos
-                agregarMarcadores(puntosReciclaje);
-            }
-        });
-
         var iconoUser = L.icon({
         iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',  // Icono de ubicación
         iconSize: [35, 35],  // Tamaño del icono
@@ -485,6 +457,37 @@
             alert("La geolocalización no está disponible en este navegador.");
         }
     };
+
+        // Agregar todos los puntos de reciclaje inicialmente
+        agregarMarcadores(puntosReciclaje);
+
+        // Filtrar puntos según el material seleccionado
+        document.getElementById('material-filter').addEventListener('change', function() {
+            var materialSeleccionado = this.value.toLowerCase();
+
+            // Eliminar todos los marcadores antes de agregar los nuevos
+            map.eachLayer(function(layer) {
+                if (layer instanceof L.Marker) {
+                    map.removeLayer(layer);
+                }
+            });
+            
+
+            // Filtrar los puntos de reciclaje
+            var puntosFiltrados = puntosReciclaje.filter(function(punto) {
+                return punto.materiales.toLowerCase().includes(materialSeleccionado);
+            });
+
+            // Agregar los puntos filtrados al mapa
+            if (puntosFiltrados.length > 0) {
+                agregarMarcadores(puntosFiltrados);
+            } else {
+                // Si no se selecciona ningún material, mostrar todos los puntos
+                agregarMarcadores(puntosReciclaje);
+            }
+        });
+
+        
     // Función para calcular la distancia entre dos coordenadas
     function getDistance(lat1, lon1, lat2, lon2) {
             var R = 6371; // Radio de la Tierra en km
