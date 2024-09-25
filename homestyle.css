@@ -278,6 +278,77 @@ body {
     transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
 }
 
+.empresas {
+    text-align: center;
+}
+
+.empresas h2{
+    font-size: 2em;
+    color: blue;
+    padding: 15px;
+}
+
+.empresas p{
+    font-size: 1.25em;
+}
+
+.list {
+    display: flex;
+    gap: 0.25rem;
+    transform-style: preserve-3d;
+    list-style-type: none;
+    transition: transform 0.5s ease;
+}
+
+/* Al hacer hover en la lista, los demás elementos se transforman */
+.list:hover .item:not(:hover) {
+    margin: 0 -20px;
+    transform: perspective(500px) rotateY(45deg) scale(0.95);
+}
+
+.list:hover .item:not(:hover)::after {
+    opacity: 0.4;
+}
+
+.item {
+    position: relative;
+    width: 200px;
+    aspect-ratio: 3/4;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(146, 144, 144, 0.808);
+    transition: margin 0.5s, transform 0.5s;
+    cursor: pointer;
+}
+
+.item img {
+    width: 90%;
+    height: 100%;
+    border-radius: 0.5rem;
+    object-fit: contain;
+}
+
+
+
+/* Efecto cuando el cursor pasa sobre un ítem */
+.item:hover ~ .item {
+    transform: perspective(500px) rotateY(-45deg) scale(0.95);
+}
+
+.item:hover {
+    transform: perspective(500px) rotateY(0) scale(1.2);
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    aspect-ratio: inherit;
+    border-radius: inherit;
+    background-color: rgb(245, 238, 238);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
 
 .testimonios {
     padding: 30px 20px;
