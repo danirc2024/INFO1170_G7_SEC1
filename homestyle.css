@@ -232,6 +232,53 @@ body {
     opacity: 1;
 }
 
+/* Tabla -------------------------------------------------------*/
+
+table.TReciclaje {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #e0f7fa;
+    color: forestgreen;
+    border: 2px solid cyan;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table.TReciclaje th, 
+table.TReciclaje td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid cadetblue;
+}
+
+table.TReciclaje th {
+    background-color: rgb(5, 102, 102);
+    color: white;
+    font-size: 1.2;
+}
+
+table.TReciclaje td {
+    background-color: white;
+}
+
+table.TReciclaje .material-title {
+    font-weight: bold;
+    color:cadetblue;
+}
+
+table.TReciclaje .material-description {
+    color: rgb(118, 118, 241);
+}
+
+table.TReciclaje img {
+    width: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Tabla -------------------------------------------------------*/
+
 .voluntariado {
     padding: 50px 20px;
     background: linear-gradient(135deg, #0d123d, #1d6fb8); /* Mezcla de azul y negro */
