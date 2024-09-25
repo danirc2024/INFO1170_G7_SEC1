@@ -140,26 +140,36 @@
 
         <section id="empresas-asociadas" class="empresas">
             <h2>Empresas Asociadas</h2>
-            <p>Conoce las empresas que apoyan nuestras iniciativas de reciclaje y sostenibilidad.</p>
-            
-            <div class="grid-empresas">
-                <div class="empresa">
-                    <img src="imagenes/empresa1.png" alt="Empresa 1">
-                    <p>Empresa 1</p>
-                    <a href="https://www.empresa1.com" target="_blank">Visitar Sitio Web</a>
-                </div>
-                <div class="empresa">
-                    <img src="imagenes/empresa2.png" alt="Empresa 2">
-                    <p>Empresa 2</p>
-                    <a href="https://www.empresa2.com" target="_blank">Visitar Sitio Web</a>
-                </div>
-                <div class="empresa">
-                    <img src="imagenes/empresa3.png" alt="Empresa 3">
-                    <p>Empresa 3</p>
-                    <a href="https://www.empresa3.com" target="_blank">Visitar Sitio Web</a>
-                </div>
-            </div>
+            <p>Conoce las empresas que apoyan nuestras iniciativas de reciclaje y sostenibilidad.</p><br>
+            <ul class="list">
+                <li class="item">
+                    <a href="https://www.supertrebol.cl/" target="_blank">
+                        <img src="trebol.jpg" alt="El Trebol">
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="https://www.easy.cl/" target="_blank">
+                        <img src="easy.png" alt="Easy">
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="https://www.lider.cl/" target="_blank">
+                        <img src="lider3950.logowik.com.webp" alt="Lider">
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="https://www.eastonmalltemuco.cl/" target="_blank">
+                        <img src="https://cityplanchile.cl/wp-content/uploads/2020/05/eastontemuco.jpg" alt="Easton Outlet">
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="https://www.temuco.cl/" target="_blank">
+                        <img src=https://www.tiempo21.cl/wp-content/uploads/logo-temuco-2021_ok.jpg alt="Muni">
+                    </a>
+                </li>
+            </ul>
         </section>
+        
         
 
         <section class="testimonios">
@@ -258,9 +268,9 @@
             <h2>Contáctanos y síguenos en nuestras redes sociales</h2>
             <form onsubmit="return validarFormulario()" class="contacto" >
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" >
                 <label for="email">Correo:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" >
                 <label for="message">Mensaje:</label>
                 <textarea id="message" name="message" rows="4" ></textarea>
                 <button type="submit">Enviar</button>
@@ -426,7 +436,38 @@
                                "<b>Horario:</b> " + punto.horario + "<br>" +
                                "<b>Materiales aceptados:</b> " + punto.materiales);
             });
+        };
+
+        var iconoUser = L.icon({
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',  // Icono de ubicación
+        iconSize: [35, 35],  // Tamaño del icono
+        iconAnchor: [17, 35],  // Punto de anclaje (la punta del ícono)
+        popupAnchor: [0, -35]  // Punto donde se mostrará el popup relativo al ícono
+    });
+
+    // Función para mostrar la ubicación actual del usuario
+    function showUserLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var userLat = position.coords.latitude;
+                var userLon = position.coords.longitude;
+
+                console.log("Ubicación obtenida", userLat, userLon);
+
+                // Añadir un marcador con el icono de ubicación del usuario
+                var userMarker = L.marker([userLat, userLon], { icon: iconoUser }).addTo(map);
+                userMarker.bindPopup("<strong>¡Estás aquí!</strong>").openPopup();
+
+                // Centramos el mapa en la ubicación del usuario
+                map.setView([userLat, userLon], 13);
+            }, function(error) {
+                console.error(error);
+                alert("No se pudo obtener la ubicación actual.");
+            });
+        } else {
+            alert("La geolocalización no está disponible en este navegador.");
         }
+    };
 
         // Agregar todos los puntos de reciclaje inicialmente
         agregarMarcadores(puntosReciclaje);
@@ -441,6 +482,7 @@
                     map.removeLayer(layer);
                 }
             });
+            
 
             // Filtrar los puntos de reciclaje
             var puntosFiltrados = puntosReciclaje.filter(function(punto) {
@@ -456,34 +498,7 @@
             }
         });
 
-        var userIcon = L.icon({
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',  // Icono de ubicación
-        iconSize: [35, 35],  // Tamaño del icono
-        iconAnchor: [17, 35],  // Punto de anclaje (la punta del ícono)
-        popupAnchor: [0, -35]  // Punto donde se mostrará el popup relativo al ícono
-    });
-
-    // Función para mostrar la ubicación actual del usuario
-    function showUserLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var userLat = position.coords.latitude;
-                var userLon = position.coords.longitude;
-
-                // Añadir un marcador con el icono de ubicación del usuario
-                var userMarker = L.marker([userLat, userLon], { icon: userIcon }).addTo(map);
-                userMarker.bindPopup("<strong>¡Estás aquí!</strong>").openPopup();
-
-                // Centramos el mapa en la ubicación del usuario
-                map.setView([userLat, userLon], 13);
-            }, function(error) {
-                console.error(error);
-                alert("No se pudo obtener la ubicación actual.");
-            });
-        } else {
-            alert("La geolocalización no está disponible en este navegador.");
-        }
-    };
+        
     // Función para calcular la distancia entre dos coordenadas
     function getDistance(lat1, lon1, lat2, lon2) {
             var R = 6371; // Radio de la Tierra en km
