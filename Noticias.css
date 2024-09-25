@@ -6,19 +6,24 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: url('FondoNoticias.jpg') center/cover no-repeat;
+    background: url('FondoNoticias2.jpg') center/cover no-repeat;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
 .TituloNoticias {
     text-align: center;
     position: absolute;
     top: 110px;
+    color: white;
+    font-size: 3rem;
 }
 
 .HeaderNoticias {
     position: relative;
     padding: 20px;
-    background: url('NoticiasImgH.png') center/cover no-repeat;
+    background: url('FondoNoticasHead.jpg') center/cover no-repeat;
     color: white;
     height: 300px;
     display: flex;
@@ -52,41 +57,36 @@ body {
 }
 
 .slider {
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    width: 80%;
-    max-width: 700px;
-    height: 300px;
+    width: 800px; 
+    height: 100px;
+    margin: 20px auto; 
     border: 2px solid black;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-    top: 20px;
+    border-radius: 10px; 
+    overflow: hidden;
 }
 
 .slides {
-    display: flex;
-    transition: transform 0.5s ease;
+    display: flex; 
+    height: 100%;
+    transition: transform 0.5s ease; 
 }
 
 .slides img {
-    width: 100%;
-    height: auto;
+    width: 800px; 
+    height: 100px; 
+    object-fit: fill;
+    flex-shrink: 0;
 }
 
 button {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     background-color: rgba(255, 255, 255, 0.7);
     border: none;
     cursor: pointer;
     font-size: 24px;
     padding: 10px;
     border-radius: 50%;
-    z-index: 1;
 }
 
 .prev {
@@ -98,7 +98,7 @@ button {
 }
 
 h2 {
-    background-color: aliceblue;
+    background-color: #e3f2fd;
     text-align: center;
     border: 2px solid black;
     padding: 10px;
@@ -109,6 +109,7 @@ h2 {
 
 p {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #info {
@@ -119,40 +120,49 @@ p {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 30px;
+    gap: 20px; 
+    margin: 0 210px; 
 }
 
 article {
+    flex-basis: calc(50% - 20px); 
+    padding: 20px;
     background-color: white;
     border-radius: 20px;
     border: 2px solid black;
-    padding: 20px;
-    width: calc(50% - 20px);
-    margin: 10px;
+    min-height: 300px;
+    max-width: 500px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s; 
+}
+
+article:hover {
+    transform: scale(1.02);
 }
 
 article h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    color: #333;
 }
 
 article p {
     margin: 10px 0;
-}
-
-.GNoticias {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    width: 80%;
-    max-width: 800px;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 footer {
+    margin-top: 30px;
     background-color: #333;
     padding: 20px;
     text-align: center;
     color: white;
+    border-top: 5px solid #ffcc00;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ccc;
 }

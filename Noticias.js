@@ -14,7 +14,7 @@ function moveSlide(direction) {
     slides.style.transform = `translateX(${offset}%)`;
 }
 
-
+// Detect click on each slide to open respective link
 for (let i = 0; i < totalSlides; i++) {
     slides.children[i].addEventListener('click', function() {
         const link = this.getAttribute('data-link'); 
@@ -22,17 +22,12 @@ for (let i = 0; i < totalSlides; i++) {
     });
 }
 
-
+// Auto-slide every 5 seconds
 setInterval(showNextSlide, 5000);
 
-
-
-
-
-
-
+// Change title when page visibility changes
 const originalTitle = document.title; 
-const newTitle = "NO TE VAYAS😭"; 
+const newTitle = "Algo Sucedeee!!!"; 
 
 document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
