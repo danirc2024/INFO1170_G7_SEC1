@@ -5,12 +5,13 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: url('FondoNoticias2.jpg') center/cover no-repeat;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    background-color: #b7e2ce; /* Fondo gris claro */
+    color: #333; /* Texto oscuro */
+    margin: 0;
+    padding: 0;
 }
+
 
 .TituloNoticias {
     text-align: center;
@@ -78,16 +79,6 @@ body {
     flex-shrink: 0;
 }
 
-button {
-    position: absolute;
-    top: 50%;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 10px;
-    border-radius: 50%;
-}
 
 .prev {
     left: 10px;
@@ -153,16 +144,54 @@ article p {
 }
 
 footer {
-    margin-top: 30px;
     background-color: #333;
     padding: 20px;
     text-align: center;
     color: white;
-    border-top: 5px solid #ffcc00;
 }
 
-footer p {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #ccc;
+
+.contacto {
+    margin-bottom: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contacto label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contacto input,
+.contacto textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contacto button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contacto button:hover {
+    background-color: #0056b3;
+}
+
+.iconos i {
+    font-size: 24px;
+    color: #0044cc;
+    margin-right: 10px;
+}
+
+.iconos i:hover {
+    color: #ffcc00;
 }

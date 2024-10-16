@@ -20,7 +20,7 @@ body {
     align-items: center;
 }
 @keyframes slider {
-    0%{background-image: url('Naturaleza_Felix-Mittermeier_Pexels.jpg');}
+    0%{background-image: url('imagenes/Naturaleza_Felix-Mittermeier_Pexels.jpg');}
     30%{background-image: url('https://wallpapers.com/images/hd/green-nature-leaf-with-dew-pdju0rwgg16bn5nb.jpg');}
     60%{background-image: url('https://i.pinimg.com/originals/de/55/0d/de550d8052bf677f9756cdefb35544e7.jpg');}
     100%{background-image: url('https://wallpapercave.com/wp/wp7532100.jpg');}
@@ -72,12 +72,11 @@ body {
 }
 
 .puntos {
-    background-image: url('puntoreciclaje.jpg'), 
-                      url('reciclaje.jpg'), 
-                      url('reciclando.jpg'), 
-                      url('limpiando.jpg'),
-                      url('puntolimpio.jpg'),
-                      url('limpiando.jpg');
+    background-image: url('imagenes/puntoreciclaje.jpg'), 
+                      url('imagenes/reciclaje.jpg'), 
+                      url('imagenes/reciclando.jpg'), 
+                      url('imagenes/limpiando.jpg'),
+                      url('imagenes/puntolimpio.jpg');
     background-size: 20% 50%, 20% 50%, 20% 50%, 20% 50%, 40% 70%; /* Tamaños ajustados */
     background-position: top left, top right, bottom left, bottom right, center; /* Posiciones de cada imagen */
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat; /* Evitar repetición de imágenes */
@@ -103,25 +102,6 @@ body {
     z-index: 2; /* Asegura que el texto y el botón estén sobre la capa */
 }
 
-/* Sección de puntos de reciclaje 
-.puntos {
-    background-image: url('images/hero.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.puntos h1 {
-    font-size: 2.5em;
-}
-
-.puntos p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-*/
 .btn {
     z-index: 2;
     background: linear-gradient(90deg,
@@ -279,51 +259,86 @@ table.TReciclaje img {
 
 /* Tabla -------------------------------------------------------*/
 
+/* Estilos para toda la sección de voluntariado */
 .voluntariado {
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #0d123d, #1d6fb8); /* Mezcla de azul y negro */
-    color: white;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 15px;
+    background-color: whitesmoke;
     border-radius: 10px;
+    margin: 15px;
 }
 
-.voluntariado h2 {
-    font-size: 1.8em; /* Tamaño del título un poco más pequeño */
+
+/* Columna de texto a la izquierda */
+.voluntariado-texto {
+    flex: 1;
+    padding: 30px;
+    background-color: #2330aa; /* Fondo azul claro */
+    border-radius: 10px;
+    color: white;
+    text-align: left; /* Alineado a la izquierda */
+    margin-right: 20px; /* Espaciado entre columnas */
+}
+
+.voluntariado-texto h2 {
+    font-size: 2.5rem; /* Tamaño del título */
+    color: #c1c2f5; /* Azul más oscuro para el título */
     margin-bottom: 20px;
-    color: #0509e9; /* Tono de azul para el título */
 }
 
-.voluntariado p {
-    font-size: 1em; /* Tamaño del texto más pequeño */
-    line-height: 2; /* Espaciado entre líneas */
-    color: #f0f0f0; /* Texto más claro para mayor contraste */
+.voluntariado-texto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: white; /* Texto en blanco */
 }
 
 
+/* Columna del botón a la derecha */
+.boton_voluntariado {
+    flex: 0.7;
+    padding: 30px;
+    background-color: #1e3c72; /* Fondo azul oscuro */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    text-align: left;
+}
 
-/* Estilos para el botón de voluntariado */
-.voluntariado .btn {
-    background: linear-gradient(90deg,
-        #27b1f1, #3bf163,
-        #3bffb4, #4d65eb);
-    color: white; /* Color del texto */
-    padding: 15px 30px; /* Más espacio interno (padding) */
+.boton_voluntariado p {
+    font-size: 1.1rem;
+    line-height: 1.5;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin-top: 20px;
-    border-radius: 30px; /* Bordes redondeados */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Transiciones */
+    color: #c5cae9; /* Texto más claro */
+    margin-bottom: 20px;
+}
+.boton_derecha {
+    display: flex;
+    justify-content: center; /* Cambiado a 'center' para alinear el botón en el centro */
+    width: 100%;
 }
 
-.voluntariado .btn:hover {
-    background: linear-gradient(90deg,
-        #013f10, #3bf163,
-        #017046, #0826d1);
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
+/* Botón de registro */
+.boton_derecha .btn {
+    background: linear-gradient(90deg, #27b1f1, #3bf163, #3bffb4, #4d65eb); /* Fondo degradado */
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
+
+.boton_derecha .btn:hover {
+    background: linear-gradient(90deg, #013f10, #3bf163, #017046, #0826d1);
+    transform: scale(1.05);
+}
+
 
 .empresas {
     text-align: center;
@@ -375,8 +390,6 @@ table.TReciclaje img {
     object-fit: contain;
 }
 
-
-
 /* Efecto cuando el cursor pasa sobre un ítem */
 .item:hover ~ .item {
     transform: perspective(500px) rotateY(-45deg) scale(0.95);
@@ -407,7 +420,7 @@ table.TReciclaje img {
     margin-bottom: 20px;
 }
 .testimonios-contenedor {
-    background-image: url('fondotestimonios.jpg' );
+    background-image: url('.jpg' );
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
     background-position: center;
     background-size: cover;
@@ -489,7 +502,7 @@ table.TReciclaje img {
 }
     
 .formulario-testimonios {
-    background-image: url('fondotestimonios.jpg' );
+    background-image: url('.jpg' );
     background-position: unset;
     background-size: cover;
     background-repeat: no-repeat;
@@ -528,8 +541,8 @@ table.TReciclaje img {
     
 
 .description {
-    background: url('nature.jpg') center/cover no-repeat; /* Fondo con imagen */
-    padding: 60px 20px;
+    background: url('imagenes/nature.jpg') center/cover no-repeat; /* Fondo con imagen */
+    padding: 20px 15px;
     color: white;
     text-align: center;
     border-radius: 10px;
@@ -550,9 +563,9 @@ table.TReciclaje img {
 }
 
 .description h2 {
-    font-size: 2em;
-    color: #629b06; /* Color llamativo */
-    margin-bottom: 20px;
+    font-size: 2,5em;
+    color: #79be08; /* Color llamativo */
+    margin-bottom: 10px;
     font-family: 'Roboto', sans-serif;
     z-index: 2;
     position: relative;
@@ -561,12 +574,12 @@ table.TReciclaje img {
 }
 
 .description p {
-    font-size: 1.3em;
+    font-size: 1.15em;
     line-height: 1.8;
     color: #fff;
     z-index: 2;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-family: 'Open Sans', sans-serif;
 }
 

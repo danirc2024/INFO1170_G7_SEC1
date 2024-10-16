@@ -1,0 +1,143 @@
+body {
+    background-color: #f8f9fa;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.carousel-caption h5 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.carousel-caption p {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.nav-link:hover {
+    color: #0056b3;
+}
+
+/* .contacto {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.contacto label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contacto input, .contacto textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.contacto button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.contacto button:hover {
+    background-color: #0056b3;
+}
+
+.iconos i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+footer {
+    text-align: center;
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+
+.tituloNoticias {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
+.noticias img {
+    align-content: center;
+    width: 200px;
+    height: 200px;
+}*/
+
+footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    color: white;
+} 
+
+
+.contacto {
+    margin-bottom: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contacto label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contacto input,
+.contacto textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contacto button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contacto button:hover {
+    background-color: #0056b3;
+}
+
+.iconos i {
+    font-size: 24px;
+    color: #0044cc;
+    margin-right: 10px;
+}
+
+.iconos i:hover {
+    color: #ffcc00;
+}
