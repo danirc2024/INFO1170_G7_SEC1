@@ -1,0 +1,73 @@
+Body {
+    Background-Image: Url('PlantitaFondo.png');
+    Background-Size: Cover;
+    Background-Position: Center;
+    Font-Family: Times New Roman;
+    Display: Flex;
+    Justify-Content: Center;
+    Align-Items: Center;
+    Height: 100Vh;
+    Margin: 0;
+}
+
+.Login-Container {
+    Background-Color: hsl(121, 65%, 82%);
+    Box-Shadow: 0 0 10Px hsl(121, 95%, 30%);
+    Border-Radius: 20Px;
+    Padding: 30Px;
+    Width: 350Px;
+}
+
+H2 {
+    Text-Align: Center;
+    Margin-Bottom: 40px;
+}
+
+.Input-Group {
+    Margin-Bottom: 30px;
+}
+
+.Input-Group Label {
+    Display: Block;
+    Font-Weight: Bold;
+    Margin-Bottom: 5px;
+    Text-Align: Center;
+}
+
+.Input-Group Input {
+    Width: 100%;
+    Padding: 8Px;
+    Border: 2Px Solid hsl(0, 0%, 0%);
+    Border-Radius: 10Px;
+    Font-Size: 20x;
+}
+
+.Login-Btn {
+    Width: 100%;
+    Padding: 10Px;
+    Border: None;
+    Color: hsl(0, 0%, 100%);
+    Background-Color: hsl(121, 95%, 30%);
+    
+    Border-Radius: 5Px;
+    Font-Size: 18Px;
+    Cursor: Pointer;
+}
+
+.Login-Btn:Hover {
+    Background-Color: hsl(121, 95%, 30%);
+}
+
+.Forgot-Password {
+    Text-Align: Center;
+    Margin-Top: 10Px;
+}
+
+.Forgot-Password A {
+    Color: hsl(121, 95%, 30%);
+    Text-Decoration: None;
+}
+
+.Forgot-Password A:Hover {
+    Text-Decoration: Underline;
+}
