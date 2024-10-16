@@ -1,115 +1,39 @@
-<!DOCTYPE Html>
-<Html Lang = "Es">
+<!DOCTYPE html>
+<html lang="es">
 
-<Head>
-    <Meta Charset="UTF-8"></Meta>
-    <Meta Name = "Viewport" Content = "Width = Device-Width, Initial-Scale = 1.0"></Meta>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="InicioSesion.css">
+</head>
 
-    <Title>Inicio De Sesión</Title>
-    
-    <Style>
-        Body {
-            Background-Image: Url('PlantitaFondo.png');
-            Background-Size: Cover;
-            Background-Position: Center;
-            Font-Family: Times New Roman;
-            Display: Flex;
-            Justify-Content: Center;
-            Align-Items: Center;
-            Height: 100Vh;
-            Margin: 0;
-        }
+<body>
+    <div class="login-container">
+        <h2>Inicio de Sesión</h2>
 
-        .Login-Container {
-            Background-Color: hsl(121, 65%, 82%);
-            Box-Shadow: 0 0 10Px hsl(121, 95%, 30%);
-            Border-Radius: 20Px;
-            Padding: 30Px;
-            Width: 350Px;
-        }
+        <form action="#">
+            <div class="input-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required placeholder="Ingresa tu usuario">
+            </div>
 
-        H2 {
-            Text-Align: Center;
-            Margin-Bottom: 40px;
-        }
+            <div class="input-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required placeholder="Ingresa tu contraseña">
+            </div>
 
-        .Input-Group {
-            Margin-Bottom: 30px;
-        }
+            <button type="submit" class="login-btn">Iniciar Sesión</button>
 
-        .Input-Group Label {
-            Display: Block;
-            Font-Weight: Bold;
-            Margin-Bottom: 5px;
-            Text-Align: Center;
-        }
+            <div class="registro">
+                <a href="InterUser.html">¿No tienes cuenta? Regístrate aquí</a>
+            </div>
 
-        .Input-Group Input {
-            Width: 100%;
-            Padding: 8Px;
-            Border: 2Px Solid hsl(0, 0%, 0%);
-            Border-Radius: 10Px;
-            Font-Size: 20x;
-        }
+            <div class="forgot-password">
+                <a href="RecuperContra.html">¿Olvidaste tu contraseña?</a>
+            </div>
+        </form>
+    </div>
+</body>
 
-        .Login-Btn {
-            Width: 100%;
-            Padding: 10Px;
-            Border: None;
-            Color: hsl(0, 0%, 100%);
-            Background-Color: hsl(121, 95%, 30%);
-            
-            Border-Radius: 5Px;
-            Font-Size: 18Px;
-            Cursor: Pointer;
-        }
-
-        .Login-Btn:Hover {
-            Background-Color: hsl(121, 95%, 30%);
-        }
-
-        .Forgot-Password {
-            Text-Align: Center;
-            Margin-Top: 10Px;
-        }
-
-        .Forgot-Password A {
-            Color: hsl(121, 95%, 30%);
-            Text-Decoration: None;
-        }
-
-        .Forgot-Password A:Hover {
-            Text-Decoration: Underline;
-        }
-    </Style>
-</Head>
-
-
-
-<Body>
-    <Div Class = "Login-Container">
-
-        <H2>Inicio De Sesión</H2>
-
-        <Form Action = "#">
-            <Div Class = "Input-Group">
-                <Label For = "Username"> Usuario: </label>
-                <Input Type = "Text" Id = "Username" Name = "Username" Required>
-            </Div>
-
-            <Div Class = "Input-Group">
-                <Label For = "Password"> Contraseña: </Label>
-                <Input Type = "Password" Id = "Password" Name = "Password" Required>
-            </Div>
-
-            <Button Type = "Submit" Class = "Login-Btn"> Iniciar Sesión </Button>
-
-            <Div Class = "Forgot-Password">
-                <A Href = "#"> ¿Olvidaste Tu Contraseña? </A>
-            </Div>
-
-        </Form>
-    </Div>
-</Body>
-
-</Html>
+</html>
