@@ -1,19 +1,16 @@
 <?php
-$host = 'localhost'; // Cambia esto si tu base de datos está en otro servidor
-$usuario = 'cdarwitg2024'; // Cambia esto por tu usuario de MySQL
-$contraseña = 'tu_contraseña'; // Cambia esto por tu contraseña de MySQL
-$base_de_datos = 'tu_base_de_datos'; // Cambia esto por el nombre de tu base de datos
+//Busca el Servidos, el user, la contraseña del user y la base de datos
+   $servidor = "mysql.inf.uct.cl";
+   $user     = "cdarwitg";
+   $password = "EgyKlAukGjQJ1s8de";
+   $basedato = "A2024_cdarwitg";
+   
+//Crea una variable "db" que utiliza todos los datos ingresados
+$db = mysqli_connect($servidor, $user, $password, $basedato);
 
-// Crear conexión
-$conexion = new mysqli($host, $usuario, $contraseña, $base_de_datos);
-
-// Comprobar conexión
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
-
-echo "Conexión exitosa a la base de datos";
-
-// Cerrar conexión
-$conexion->close();
+   //Si no se puede conectar a la base de datos soltara un error
+   if(!$db) {
+         echo "Error de conexión a la BD";
+         exit();
+   }
 ?>

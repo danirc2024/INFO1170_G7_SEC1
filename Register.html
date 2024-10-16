@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="Register.css">
+</head>
+<body>
+    <h3>Registro</h3>
+
+    <form action="#" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required /> 
+        <hr><br>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required />
+        <hr><br>
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com" required />
+        <hr><br>
+
+        <label for="recibir-correos">¿Deseas recibir correos?</label>
+        <input type="checkbox" id="recibir-correos" name="recibir_correos" value="si" />
+        <hr><br>
+
+        <input type="submit" value="Registrarse" />
+    </form>
+</body>
+</html>
