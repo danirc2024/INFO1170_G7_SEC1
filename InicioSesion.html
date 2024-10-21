@@ -193,7 +193,8 @@
             <Button Type="Button" Class="Back-Btn" Onclick="toggleForms()"> Volver Atras </Button>
         </Form>
 
-        <Form Id="change-password-form" Class="Hidden" Onsubmit="return validatePasswordChange()">
+        <Form Id="change-password-form" Action="cambiar_contrasena.php" Method="POST" Onsubmit="return validatePasswordChange()">
+        AQUI HICE CAMBIO
             <H2>Cambiar Contraseña</H2>
             <Div Class="Input-Group">
                 <Label For="emergency-password">Contraseña Emergencia:</Label>
