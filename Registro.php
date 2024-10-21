@@ -1,30 +1,32 @@
 <?php
 // Incluir archivo de conexión a la base de datos
-include 'conexion.php';
+include 'Conex.inc';
 
 // Verifica si el formulario fue enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+if(isset($_POST['nombre'],$_POST['password'],$_POST('correo'))) {
+    $nombre = $_POST['nombre'];
+    $contra = $_POST['contra'];
+    $correo = $_POST['correo'];
 
-    // Encripta la contraseña
-    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+    mysqli_set_charset($db, "utf8");
 
-    // Preparar la consulta SQL
-    $sql = "INSERT INTO ####BaseDatos#### (usuario, email, contrasena) VALUES (?, ?, ?)";
-    $stmt = $db->prepare($sql);
-    $stmt->bind_param("sss", $username, $email, $passwordHash);
+    $InsertarDatos = "INSERT INTO Taller Integracion2 (nombre,contra,correo) VALUES ('$Nombre', '$Correo', '$Artista', '$Edad')";
 
-    // Ejecuta la consulta y verifica el resultado
-    if ($stmt->execute()) {
-        echo "Registro exitoso. ¡Bienvenido, $username!";
+    $EjecutarInsert = mysqli_query($db, $InsertarDatos);
+
+    
+    if ($EjecutarInsert) {
+        echo "<script>
+                alert('Datos insertados correctamente.');
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 1000);
+              </script>";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error al insertar los datos: " . mysqli_error($db);
     }
-
-    // Cierra la conexión
-    $stmt->close();
-    $db->close();
+} else {
+    echo "Por favor, completa todos los campos.";
 }
+
 ?>
