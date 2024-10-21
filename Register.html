@@ -7,26 +7,31 @@
     <link rel="stylesheet" href="Register.css">
 </head>
 <body>
-    <h3>Registro</h3>
+    <div class="register-container">
+        <form action="Registro.php" method="POST">
+            <h2>Registro</h2>
+            <div class="input-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu Nombre"/> 
 
-    <form action="Registro.php" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required /> 
-        <hr><br>
+            <label for="contra">Contraseña:</label>
+            <input type="password" id="contra" name="contra" required placeholder="Ingresa tu Contraseña"/>
+            
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com" required />
 
-        <label for="contra">Contraseña:</label>
-        <input type="password" id="contra" name="contra" required />
-        <hr><br>
+            <label for="recibir-correos">
+                <input type="checkbox" id="recibir-correos" name="recibir_correos" value="si" />
+                ¿Deseas recibir correos?
+            </label>
+            </div>
 
-        <label for="correo">Correo Electrónico:</label>
-        <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com" required />
-        <hr><br>
+            <div class="register-btn">
+                <input type="submit" value="Registrarse" />
+            </div>
 
-        <label for="recibir-correos">¿Deseas recibir correos?</label>
-        <input type="checkbox" id="recibir-correos" name="recibir_correos" value="si" />
-        <hr><br>
-
-        <input type="submit" value="Registrarse" />
-    </form>
+            <a href="InicioSesion.html">¿Tienes cuenta?</a>
+        </form>
+    </div>
 </body>
 </html>

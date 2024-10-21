@@ -10,7 +10,7 @@ if(isset($_POST['nombre'],$_POST['password'],$_POST('correo'))) {
 
     mysqli_set_charset($db, "utf8");
 
-    $InsertarDatos = "INSERT INTO Taller Integracion2 (nombre,contra,correo) VALUES ('$Nombre', '$Correo', '$Artista', '$Edad')";
+    $InsertarDatos = "INSERT INTO Taller Integracion (nombre,contra,correo) VALUES ('$Nombre', '$Correo', '$Artista', '$Edad')";
 
     $EjecutarInsert = mysqli_query($db, $InsertarDatos);
 
