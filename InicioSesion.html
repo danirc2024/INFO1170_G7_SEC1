@@ -1,125 +1,135 @@
-<!DOCTYPE Html>
-<Html Lang="Es">
+<!DOCTYPE html>
+<html lang="es">
 
-<Head>
-    <Meta Charset="UTF-8"></Meta>
-    <Meta Name="Viewport" Content="Width=Device-Width, Initial-Scale=1.0"></Meta>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <Title>Inicio De Sesión</Title>
-    
-    <Style>
-        Body {
-            Background-Image: Url('PlantitaFondo.png');
-            Background-Size: Cover;
-            Background-Position: Center;
-            Font-Family: Times New Roman;
-            Display: Flex;
-            Justify-Content: Center;
-            Align-Items: Center;
-            Height: 100Vh;
-            Margin: 0;
+    <title>Inicio de Sesión</title>
+
+    <style>
+        body {
+            background-image: url('PlantitaFondo.png');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
-        .Login-Container {
-            Background-Color: hsl(121, 65%, 82%);
-            Box-Shadow: 0 0 10Px hsl(121, 95%, 30%);
-            Border-Radius: 20Px;
-            Padding: 30Px;
-            Width: 350Px;
-            Position: Relative;
+        .login-container {
+            background-color: hsl(121, 65%, 82%);
+            box-shadow: 0 0 10px hsl(121, 95%, 30%);
+            border-radius: 20px;
+            padding: 30px;
+            width: 350px;
+            position: relative;
         }
 
-        H2 {
-            Text-Align: Center;
-            Margin-Bottom: 40px;
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .Input-Group {
-            Margin-Bottom: 30px;
+        .input-group {
+            margin-bottom: 30px;
         }
 
-        .Input-Group Label {
-            Display: Block;
-            Font-Weight: Bold;
-            Margin-Bottom: 5px;
-            Text-Align: Center;
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
         }
 
-        .Input-Group Input {
-            Width: 100%;
-            Padding: 8Px;
-            Border: 2Px Solid hsl(0, 0%, 0%);
-            Border-Radius: 10Px;
-            Font-Size: 20x;
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid hsl(0, 0%, 0%);
+            border-radius: 10px;
+            font-size: 20px;
         }
 
-        .Login-Btn, .Back-Btn, .Submit-Btn, .Return-Btn {
-            Width: 100%;
-            Padding: 10Px;
-            Border: None;
-            Color: hsl(0, 0%, 100%);
-            Background-Color: hsl(121, 95%, 30%);
-            Font-Family: Times New Roman;
-            Border-Radius: 5Px;
-            Font-Size: 18Px;
-            Cursor: Pointer;
+        .login-btn,
+        .back-btn,
+        .submit-btn,
+        .return-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            color: hsl(0, 0%, 100%);
+            background-color: hsl(121, 95%, 30%);
+            font-family: 'Times New Roman', serif;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
         }
 
-        .Login-Btn:Hover, .Back-Btn:Hover, .Submit-Btn:Hover, .Return-Btn:Hover {
-            Background-Color: hsl(121, 80%, 35%);
+        .login-btn:hover,
+        .back-btn:hover,
+        .submit-btn:hover,
+        .return-btn:hover {
+            background-color: hsl(121, 80%, 35%);
         }
 
-        .Forgot-Password, .Change-Password {
-            Text-Align: Center;
-            Margin-Top: 10Px;
-            Margin-bottom: 10Px
+        .forgot-password,
+        .change-password {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
-        .Forgot-Password A, .Change-Password A {
-            Color: hsl(121, 95%, 30%);
-            Text-Decoration: None;
+        .forgot-password a,
+        .change-password a {
+            color: hsl(121, 95%, 30%);
+            text-decoration: none;
         }
 
-        .Forgot-Password A:Hover, .Change-Password A:Hover {
-            Text-Decoration: Underline;
+        .forgot-password a:hover,
+        .change-password a:hover {
+            text-decoration: underline;
         }
 
-        .Back-Btn, .Return-Btn {
-            Margin-Top: 20Px;
-            Display: Block;
-            Text-Align: Center;
-            Text-Decoration: None;
-            Box-Sizing: Border-Box;
+        .back-btn,
+        .return-btn {
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
         }
 
-        .Hidden {
-            Display: None;
+        .hidden {
+            display: none;
         }
 
-        .Password-Message {
-            Margin-Top: 20Px;
-            Text-Align: Center;
-            Color: hsl(121, 80%, 30%);
-            Font-Weight: Bold;
+        .password-message {
+            margin-top: 20px;
+            text-align: center;
+            color: hsl(121, 80%, 30%);
+            font-weight: bold;
         }
-    </Style>
+    </style>
 
-    <Script>
+    <script>
         let tempPassword = "";
 
         function toggleForms() {
-            document.getElementById('login-form').classList.toggle('Hidden');
-            document.getElementById('forgot-password-form').classList.toggle('Hidden');
+            document.getElementById('login-form').classList.toggle('hidden');
+            document.getElementById('forgot-password-form').classList.toggle('hidden');
         }
 
         function toggleChangePasswordForm() {
-            document.getElementById('forgot-password-form').classList.add('Hidden');
-            document.getElementById('change-password-form').classList.remove('Hidden');
+            document.getElementById('forgot-password-form').classList.add('hidden');
+            document.getElementById('change-password-form').classList.remove('hidden');
         }
 
         function showForgotPasswordForm() {
-            document.getElementById('change-password-form').classList.add('Hidden');
-            document.getElementById('forgot-password-form').classList.remove('Hidden');
+            document.getElementById('change-password-form').classList.add('hidden');
+            document.getElementById('forgot-password-form').classList.remove('hidden');
         }
 
         function generateTemporaryPassword() {
@@ -128,8 +138,8 @@
             for (let i = 0; i < 10; i++) {
                 tempPassword += chars.charAt(Math.floor(Math.random() * chars.length));
             }
-            document.getElementById('temp-password').innerText = "Tu Contraseña De Emergencia Es: " + tempPassword;
-            document.getElementById('temp-password').classList.remove('Hidden');
+            document.getElementById('temp-password').innerText = "Tu Contraseña de Emergencia es: " + tempPassword;
+            document.getElementById('temp-password').classList.remove('hidden');
             return false;
         }
 
@@ -139,7 +149,7 @@
             const confirmPassword = document.getElementById("confirm-password").value;
 
             if (emergencyPassword !== tempPassword) {
-                document.getElementById("password-message").innerText = "Contraseña De Emergencia Incorrecta.";
+                document.getElementById("password-message").innerText = "Contraseña de Emergencia Incorrecta.";
                 return false;
             }
 
@@ -148,83 +158,86 @@
                 return false;
             }
 
-            document.getElementById("password-message").innerText = "¡Contraseña Cambiada Con Exito!";
+            document.getElementById("password-message").innerText = "¡Contraseña Cambiada con Éxito!";
             return false;
         }
-    </Script>
+    </script>
 
-</Head>
+</head>
 
-<Body>
-    <Div Class="Login-Container">
+<body>
+    <div class="login-container">
 
-        <Form Id="login-form" Action="#" Method="post">
-            <H2>Inicio De Sesión</H2>
-            <Div Class="Input-Group">
-                <Label For="Username"> Usuario: </Label>
-                <Input Type="Text" Id="Username" Name="Username" Required>
-            </Div>
+        <!-- Formulario de Inicio de Sesión -->
+        <form id="login-form" action="#" method="post">
+            <h2>Inicio de Sesión</h2>
+            <div class="input-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
 
-            <Div Class="Input-Group">
-                <Label For="Password"> Contraseña: </label>
-                <Input Type="Password" Id="Password" Name="Password" Required>
-            </Div>
+            <div class="input-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
 
-            <Div Class="Forgot-Password">
-                <A Href="javascript:void(0)" Onclick="toggleForms()"> ¿Olvidaste Tu Contraseña? </A>
-            </Div>
+            <div class="forgot-password">
+                <a href="javascript:void(0)" onclick="toggleForms()">¿Olvidaste tu contraseña?</a>
+            </div>
 
-            <Button Type="Submit" Class="Login-Btn"> Iniciar Sesión </Button>
-        </Form>
+            <button type="submit" class="login-btn">Iniciar Sesión</button>
+        </form>
 
-        <Form Id="forgot-password-form" Class="Hidden" Onsubmit="return generateTemporaryPassword()">
-            <H2>Recuperar Contraseña</H2>
-            <Div Class="Input-Group">
-                <Label For="Email"> Correo Electrónico: </label>
-                <Input Type="Email" Id="Email" Name="Email" Required>
-            </Div>
+        <!-- Formulario de Recuperación de Contraseña -->
+        <form id="forgot-password-form" class="hidden" onsubmit="return generateTemporaryPassword()">
+            <h2>Recuperar Contraseña</h2>
+            <div class="input-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-            <Div Class="Change-Password">
-                <A Href="javascript:void(0)" Onclick="toggleChangePasswordForm()"> ¿Desea Cambiar Contraseña? </A>
-            </Div>
+            <div class="change-password">
+                <a href="javascript:void(0)" onclick="toggleChangePasswordForm()">¿Desea Cambiar Contraseña?</a>
+            </div>
 
-            <Button Type="Submit" Class="Submit-Btn"> Contraseña Emergencia </Button>
+            <button type="submit" class="submit-btn">Generar Contraseña de Emergencia</button>
 
-            <Button Type="Button" Class="Back-Btn" Onclick="toggleForms()"> Volver Atras </Button>
-        </Form>
+            <button type="button" class="back-btn" onclick="toggleForms()">Volver Atrás</button>
+        </form>
 
-        <Form Id="change-password-form" Action="cambiar_contrasena.php" Method="POST" Onsubmit="return validatePasswordChange()">
-        AQUI HICE CAMBIO
-            <H2>Cambiar Contraseña</H2>
-            <Div Class="Input-Group">
-                <Label For="emergency-password">Contraseña Emergencia:</Label>
-                <Input Type="Password" Id="emergency-password" Name="emergency-password" Required>
-            </Div>
+        <!-- Formulario de Cambio de Contraseña -->
+        <form id="change-password-form" action="cambiar_contrasena.php" method="POST" class="hidden" onsubmit="return validatePasswordChange()">
+            <h2>Cambiar Contraseña</h2>
+            <div class="input-group">
+                <label for="emergency-password">Contraseña de Emergencia:</label>
+                <input type="password" id="emergency-password" name="emergency-password" required>
+            </div>
 
-            <Div Class="Input-Group">
-                <Label For="new-password">Nueva Contraseña:</Label>
-                <Input Type="Password" Id="new-password" Name="new-password" Required>
-            </Div>
+            <div class="input-group">
+                <label for="new-password">Nueva Contraseña:</label>
+                <input type="password" id="new-password" name="new-password" required>
+            </div>
 
-            <Div Class="Input-Group">
-                <Label For="confirm-password">Confirmar Contraseña:</Label>
-                <Input Type="Password" Id="confirm-password" Name="confirm-password" Required>
-            </Div>
+            <div class="input-group">
+                <label for="confirm-password">Confirmar Contraseña:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
 
-            <Button Type="Submit" Class="Submit-Btn">Cambiar Contraseña</Button>
+            <button type="submit" class="submit-btn">Cambiar Contraseña</button>
 
-            <Button Type="Button" Class="Back-Btn" Onclick="showForgotPasswordForm()"> Volver Atras </Button>
+            <button type="button" class="back-btn" onclick="showForgotPasswordForm()">Volver Atrás</button>
 
-            <Div Id="password-message" Class="Password-Message"></Div>
-        </Form>
+            <div id="password-message" class="password-message"></div>
+        </form>
 
-        <Div Id="temp-password" Class="Password-Message Hidden"></Div>
+        <div id="temp-password" class="password-message hidden"></div>
 
-        <A Href="home_paginw.html" Class="Return-Btn">Volver Inicio</A>
-    </Div>
-</Body>
+        <a href="home_pagina.html" class="return-btn">Volver al Inicio</a>
+    </div>
+</body>
 
-</Html>
+</html>
+
 
 
 
