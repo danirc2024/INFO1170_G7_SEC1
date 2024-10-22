@@ -1,35 +1,56 @@
 <?php
-//Busca la conexion hacia la base de datos, en este caso conexionBD
-include 'conexionBD.php';
+// Incluir archivo de conexión a la base de datos
+include 'Conex.inc';
 
-//Verifica si los datos fueron enviados mediante POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //Recive los datos de Username y Password
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+// Verificar si el formulario fue enviado
+if (isset($_POST['correo'], $_POST['contra'])) {
+    $correo = $_POST['correo'];
+    $contra = $_POST['contra'];
 
-    //Consulta para verificar si el usuario existe
-    $sql = "SELECT * FROM usuarios WHERE usuario = ?";
-    $stmt = $db->prepare($sql);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
-    //Comprueba si el usuario existe
-    if ($resultado->num_rows > 0) {
-        $usuario = $resultado->fetch_assoc();
+    // Preparar la consulta para buscar al usuario
+    $sql = "SELECT contra FROM Taller_Int_Usuarios WHERE correo = ?";
+    $stmt = mysqli_prepare($db, $sql);
 
-        //Verifica que la contraseña sea correcta
-        if (password_verify($password, $usuario['contrasena'])) {
-            echo "<p>¡Inicio de sesión exitoso!</p>";
+    if ($stmt) {
+        // Asignar los parámetros y ejecutar la consulta
+        mysqli_stmt_bind_param($stmt, 's', $correo);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+
+        // Verificar si el usuario existe
+        if (mysqli_stmt_num_rows($stmt) > 0) {
+            // Obtener la contraseña encriptada de la base de datos
+            mysqli_stmt_bind_result($stmt, $hashedPassword);
+            mysqli_stmt_fetch($stmt);
+
+            // Verificar la contraseña ingresada
+            if (password_verify($contra, $hashedPassword)) {
+                echo "<script>
+                        alert('Inicio de sesión exitoso.');
+                        window.location.href = 'dashboard.html'; // Página principal tras iniciar sesión
+                      </script>";
+            } else {
+                echo "<script>
+                        alert('Contraseña incorrecta.');
+                        window.location.href = 'InicioSesion.html';
+                      </script>";
+            }
         } else {
-            echo "<p>Contraseña incorrecta.</p>";
+            echo "<script>
+                    alert('Usuario no encontrado.');
+                    window.location.href = 'InicioSesion.html';
+                  </script>";
         }
-        //Si el usuario no existe dira "El usuario no existe"
+
+        // Cerrar el statement
+        mysqli_stmt_close($stmt);
     } else {
-        echo "<p>El usuario no existe.</p>";
+        echo "Error en la preparación de la consulta.";
     }
-    //Y esto cierra la conexion
-    $stmt->close();
-    $db->close();
+} else {
+    echo "Por favor, completa todos los campos.";
 }
+
+// Cerrar la conexión
+mysqli_close($db);
 ?>
