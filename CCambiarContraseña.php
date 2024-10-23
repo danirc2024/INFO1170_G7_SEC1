@@ -1,4 +1,6 @@
 <?php
+//PILOTO
+
 // Conexión a la base de datos
 $servername = "mysql.inf.uct.cl";  
 $username = "cdarwitg";   
