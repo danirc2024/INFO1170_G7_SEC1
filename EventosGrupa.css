@@ -51,55 +51,18 @@ body {
     margin: 20px;
 }
 
-.informacion-adicional {
-    background-color: #e2e2e2;
-    padding: 20px;
-    border-radius: 5px;
-    width: 30%;
-}
-
-.boton-unirse {
-    text-align: center; /* Centra el contenido dentro del contenedor */
-    margin-top: 20px;
-}
-
-.boton-unirse button {
-    background-color: #28a745; /* Color del botón */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.boton-unirse button:hover {
-    background-color: #218838; /* Color al pasar el mouse */
-    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
-}
-
-.aceptar-btn {
-    background-color: #8edb8e; 
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 10px 15px 0 0; /* Combina márgenes */
-}
-
-.aceptar-btn:hover {
-    background-color: #6cbe6c; 
-}
-
-
 .ListaEventos {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
-    width: 65%;
+    width: 65%; /* Ajusta el ancho según tus preferencias */
+}
+
+.informacion-adicional {
+    background-color: #e2e2e2;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%; /* Ajusta el ancho según tus preferencias */
 }
 
 h2 {
@@ -132,10 +95,47 @@ p {
 }
 
 .boton-unirse {
+    text-align: center; /* Centra el contenido dentro del contenedor */
+    margin-top: 20px;
+}
+
+.boton-unirse button {
+    background-color: #28a745; /* Color del botón */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.boton-unirse button:hover {
+    background-color: #218838; /* Color al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
+.boton-unirse {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
+
+.aceptar-btn {
+    background-color: #8edb8e; 
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px 15px 0 0; /* Combina márgenes */
+}
+
+.aceptar-btn:hover {
+    background-color: #6cbe6c; 
+}
+
 
 footer {
     background-color: #333;
