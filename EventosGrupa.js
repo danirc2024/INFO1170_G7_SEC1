@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (cupos > 0) {
                 cupos--; // Disminuir el número de cupos
                 cuposElemento.textContent = cupos; // Actualizar el texto de cupos
-                
+
                 // Mostrar la alerta
                 alert(`${mision}\nAceptado\nCupos restantes: ${cupos}\nPuntos: 1000`);
             } else {
