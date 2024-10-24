@@ -2,6 +2,74 @@ body {
     background-color: #f8f9fa;
 }
 
+#darkModeToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#darkModeToggle:hover {
+    background-color: #0056b3;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
+
+body.dark-mode h1 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .carousel-caption h5, 
+body.dark-mode .carousel-caption p {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .nav-link {
+    color: #82cfff;
+}
+
+body.dark-mode .nav-link:hover {
+    color: #4fb3ff;
+}
+
+body.dark-mode .comment-list li {
+    background-color: #333333;
+}
+
+body.dark-mode footer {
+    background-color: #111;
+    color: #bbb;
+}
+
+body.dark-mode .contacto input, 
+body.dark-mode .contacto textarea {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+body.dark-mode .contacto button {
+    background-color: #4fb3ff;
+}
+
+body.dark-mode .iconos i {
+    color: #82cfff;
+}
+
+body.dark-mode .iconos i:hover {
+    color: #ffcc00;
+}
+
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -29,65 +97,22 @@ h1 {
     color: #0056b3;
 }
 
-/* .contacto {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+.comment-form {
+    margin-top: 10px;
 }
 
-.contacto label {
-    margin-bottom: 5px;
-    font-weight: bold;
+.comment-list {
+    list-style-type: none;
+    padding: 0;
 }
 
-.contacto input, .contacto textarea {
+.comment-list li {
     margin-bottom: 10px;
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ced4da;
-}
-
-.contacto button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+    background-color: #f1f1f1;
     border-radius: 5px;
 }
 
-.contacto button:hover {
-    background-color: #0056b3;
-}
-
-.iconos i {
-    font-size: 1.5rem;
-    margin-right: 15px;
-}
-
-footer {
-    text-align: center;
-    background-color: #343a40;
-    color: white;
-    padding: 20px 0;
-}
-
-.tituloNoticias {
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    color: black;
-}
-
-.noticias img {
-    align-content: center;
-    width: 200px;
-    height: 200px;
-}*/
 
 footer {
     background-color: #333;
