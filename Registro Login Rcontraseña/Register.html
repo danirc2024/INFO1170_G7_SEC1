@@ -8,29 +8,27 @@
 </head>
 <body>
     <div class="register-container">
-        <form action="Registro.php" method="POST">
+        <form action="Register.php" method="POST">
             <h2>Registro</h2>
             <div class="input-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu Nombre"/> 
-
-            <label for="contra">Contraseña:</label>
-            <input type="password" id="contra" name="contra" required placeholder="Ingresa tu Contraseña"/>
-            
-            <label for="correo">Correo Electrónico:</label>
-            <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com" required />
-
-            <label for="recibir-correos">
-                <input type="checkbox" id="recibir-correos" name="recibir_correos" value="si" />
-                ¿Deseas recibir correos?
-            </label>
+                <label for="NombreUser">Nombre de Usuario:</label>
+                <input type="text" id="NombreUser" name="NombreUser" required maxlength="80">
+                
+                <label for="Password">Contraseña:</label>
+                <input type="password" id="Password" name="Password" required maxlength="100">
+                
+                <label for="Email">Correo Electrónico:</label>
+                <input type="email" id="Email" name="Email" required maxlength="100">
+                
+                <label for="RolUser">Rol de Usuario:</label>
+                <select id="RolUser" name="RolUser" required>
+                    <option value="Usuario">Usuario</option>
+                </select>
             </div>
-
             <div class="register-btn">
                 <input type="submit" value="Registrarse" />
             </div>
-
-            <a href="InicioSesion.html">¿Tienes cuenta?</a>
+            <a href="Login.html">¿Tienes cuenta?</a>
         </form>
     </div>
 </body>
