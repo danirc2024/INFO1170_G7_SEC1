@@ -1,8 +1,7 @@
 <?php
-// Incluir archivo de conexión a la base de datos
+
 include 'Conex.inc';
 
-// Verifica si el formulario fue enviado
 if (isset($_POST['NombreEmpresa'], $_POST['CorreoEmpresa'], $_POST['Monto'], $_POST['Clave'])) {
     $nombreEmpresa = $_POST['NombreEmpresa'];
     $correoEmpresa = $_POST['CorreoEmpresa'];
@@ -11,12 +10,11 @@ if (isset($_POST['NombreEmpresa'], $_POST['CorreoEmpresa'], $_POST['Monto'], $_P
 
     mysqli_set_charset($db, "utf8");
 
-    $insertarDatos = "INSERT INTO Taller_Int_Empresas_Asociadas (nombre, correo, monto, clave) 
+    $insertarDatos = "INSERT INTO Taller_Int_RegEmpresa (NombreEmpresa, EmailEmpresa, Monto, Clave) 
                       VALUES ('$nombreEmpresa', '$correoEmpresa', '$monto', '$clave')";
 
-    $EjecutarInsert = mysqli_query($db, $InsertarDatos);
+    $EjecutarInsert = mysqli_query($db, $insertarDatos);
 
-    
     if ($EjecutarInsert) {
         echo "<script>
                 alert('Monto Enviado Correctamente, Muchas Gracias.');
@@ -27,5 +25,4 @@ if (isset($_POST['NombreEmpresa'], $_POST['CorreoEmpresa'], $_POST['Monto'], $_P
 } else {
     echo "Por favor, completa todos los campos.";
 }
-
 ?>
